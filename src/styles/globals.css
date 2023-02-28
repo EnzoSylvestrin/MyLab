@@ -61,3 +61,7 @@ a {
 :-ms-input-placeholder {  
   color: #e7e7e7e7;  
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
