@@ -11,6 +11,8 @@ module.exports = {
         red: '#FE4A49',
         grayMain: '#F5E6E8',
         blackMain: '#332E3C',
+        darkColor: 'rgb(23 23 23)',
+        lightColor: 'rgb(249 250 251)',
       },
       fontFamily: {
         work: 'Work Sans, sans-serif'

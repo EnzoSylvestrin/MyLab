@@ -11,7 +11,7 @@ const meta: Meta<typeof Loading> = {
 export default meta;
 type Story = StoryObj<typeof Loading>;
 
-export const Primary: Story = {};
+export const Default: Story = {};
 
 export const Left: Story = {
   args: {
