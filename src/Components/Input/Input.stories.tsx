@@ -8,14 +8,6 @@ const meta: Meta<InputRootProps> = {
     title: "Components/Input",
     component: Input.Root,
     tags: ['autodocs'],
-    args: {
-        children: [
-            <Input.Icon>
-                <BiEnvelope />
-            </Input.Icon>,
-            <Input.Input placeholder="Digite seu email..." />
-        ]
-    },
     argTypes: {
         children: {
             table: {
@@ -29,7 +21,16 @@ export default meta;
 
 type Story = StoryObj<InputRootProps>;
 
-export const Default : Story = {}
+export const Default : Story = {
+    args: {
+        children: [
+            <Input.Icon>
+                <BiEnvelope />
+            </Input.Icon>,
+            <Input.Input placeholder="Digite seu email..." />
+        ]
+    },
+}
 
 export const IconColored : Story = {
     args: {
