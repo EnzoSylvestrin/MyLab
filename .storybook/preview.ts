@@ -5,7 +5,7 @@ import '../src/styles/globals.css';
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: "dark",
+      disable: true
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -13,6 +13,11 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    darkMode: {
+      darkClass: ['dark', 'darkbg'],
+      lightClass: 'lightbg',
+      stylePreview: true,
     },
   },
 };

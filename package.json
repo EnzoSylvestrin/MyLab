@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.1",
     "@types/node": "18.14.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -19,6 +20,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "storybook-addon-themes": "^6.1.0",
     "typescript": "4.9.5"
   },
   "devDependencies": {
@@ -32,6 +34,7 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "storybook": "^7.0.0-beta.55",
+    "storybook-dark-mode": "^2.1.1",
     "tailwindcss": "^3.2.7"
   }
 }
