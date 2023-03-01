@@ -5,12 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        "lg": 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px',
-      },
       colors: {
         main: '#2AB7CA',
-        secondary: '#665ae9',
+        secondary: '#0bd9d9',
         red: '#FE4A49',
         grayMain: '#F5E6E8',
         blackMain: '#332E3C',

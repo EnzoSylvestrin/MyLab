@@ -15,6 +15,7 @@ const preview: Preview = {
       },
     },
     darkMode: {
+      current: 'dark',
       darkClass: ['dark', 'darkbg'],
       lightClass: 'lightbg',
       stylePreview: true,

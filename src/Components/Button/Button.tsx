@@ -16,10 +16,9 @@ export const Button = ({ size = 'md', type = "button", text, href, full, onClick
     <Button
       type={type}
       className={clsx(
-        "rounded-md text-white ring-secondary ring-2 transition-all duration-[800ms] z-[1] ",
-        "px-[.65rem] py-2 cursor-pointer relative overflow-hidden shadow-lg outline-0 ",
-        `hover:bg-transparent hover:text-secondary ${!full ? 'hover:scale-105' : ''} hover:before:w-0 hover:before:left-[-50px] `,
-        "before:absolute before:left-[-20px] before:top-0 before:w-[200%] before:h-full before:bg-secondary before:skew-x-[45deg] before:z-[-1] before:transition-all before:duration-[800ms]", {
+        "rounded-xl bg-secondary text-white ring-secondary ring-2 transition-all duration-500 ",
+        "px-[.65rem] py-2 cursor-pointer shadow-lg ",
+        'hover:bg-transparent hover:text-secondary', {
         'text-sm': size === 'sm',
         'text-md': size === 'md',
         'text-lg': size === 'lg',
