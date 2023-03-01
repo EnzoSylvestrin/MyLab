@@ -14,7 +14,6 @@
 
 html,
 body {
-  max-width: 100vh;
   min-height: 100vh;
   overflow-x: hidden;
   background-color: var(--bgColor);
