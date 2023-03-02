@@ -9,13 +9,15 @@ type LinkProps = {
     text: string
     href: string,
     underline?: boolean,
+    colored?: boolean,
     size?: 'sm' | 'md' | 'lg',
     title?: boolean,
     className?: String,
+    underlineOnHover?: boolean,
     align?: 'left' | 'center' | 'right',
 }
 
-export const Link = ({ text, href, title, size = 'md', className, align, underline = false }: LinkProps) => {
+export const Link = ({ text, href, underline = false, colored = true, title, size = 'md', className, underlineOnHover = true, align }: LinkProps) => {
 
     const Comp = !title ? Text : Heading;
 
@@ -23,14 +25,16 @@ export const Link = ({ text, href, title, size = 'md', className, align, underli
         <Comp
             align={align}
             size={size}
-            className={clsx(className, 'transition-all duration-300 hover:!text-secondary')}
         >
             <NextLink
                 href={href}
                 className={clsx(
-                    'cursor-pointer', {
-                    "underline": underline
-                }
+                    'cursor-pointer transition-all duration-300 hover:!text-secondary ', {
+                        '!text-secondary': colored,
+                        'hover:underline': underlineOnHover,
+                        'underline': underline
+                    },
+                    className, 
                 )}
             >
                 {text}

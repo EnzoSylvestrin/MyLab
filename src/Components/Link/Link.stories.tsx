@@ -53,9 +53,24 @@ export const Underline: Story = {
     }
 }
 
+export const NotColored: Story = {
+    args: {
+        colored: false
+    }
+}
+
+export const WithoutUnderlineOnHover: Story = {
+    args: {
+        text: 'hover me',
+        underlineOnHover: false
+    }
+}
+
 export const Custom: Story = {
     args: {
         text: 'hover me',
-        className: 'underline hover:!text-main',
+        underline: true,
+        colored: false,
+        className: '!text-transparent bg-clip-text bg-gradient-to-r from-red to-secondary'
     }
 };

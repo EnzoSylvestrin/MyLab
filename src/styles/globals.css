@@ -20,15 +20,15 @@ a {
 }
 
 .darkbg {
-  background-color: #332E3C;
+  background-color: #282828;
 }
 
 .darkbg .docs-story {
-  background-color: #332E3C;
+  background-color: #282828;
 }
 
 .lightbg {
-  background-color: #F5E6E8;
+  background-color: #f5f5f5;
 }
 
 ::selection {
