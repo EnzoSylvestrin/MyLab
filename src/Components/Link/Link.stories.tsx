@@ -59,6 +59,13 @@ export const NotColored: Story = {
     }
 }
 
+export const External: Story = {
+    args: {
+        href: 'https://google.com',
+        external: true
+    }
+}
+
 export const WithoutUnderlineOnHover: Story = {
     args: {
         text: 'hover me',

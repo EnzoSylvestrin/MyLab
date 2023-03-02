@@ -24,9 +24,7 @@ export const Button = ({ size = 'md', type = "button", text, href, full, onClick
         'text-lg': size === 'lg',
         'w-full': full
       })}
-      target='_blank'
-      rel="noopener noreferrer"
-      href={href}
+      {...(href ? { target: "_blank", rel: "noopener noreferrer", href: href } : {})}
       onClick={onClick}
       {...props}
     >

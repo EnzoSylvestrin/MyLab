@@ -15,9 +15,10 @@ type LinkProps = {
     className?: String,
     underlineOnHover?: boolean,
     align?: 'left' | 'center' | 'right',
+    external?: boolean,
 }
 
-export const Link = ({ text, href, underline = false, colored = true, title, size = 'md', className, underlineOnHover = true, align }: LinkProps) => {
+export const Link = ({ text, href, underline = false, colored = true, title, size = 'md', className, underlineOnHover = true, align, external = false }: LinkProps) => {
 
     const Comp = !title ? Text : Heading;
 
@@ -34,8 +35,9 @@ export const Link = ({ text, href, underline = false, colored = true, title, siz
                         'hover:underline': underlineOnHover,
                         'underline': underline
                     },
-                    className, 
+                    className,
                 )}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
                 {text}
             </NextLink>
