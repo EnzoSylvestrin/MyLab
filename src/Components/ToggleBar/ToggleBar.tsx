@@ -6,25 +6,25 @@ export const ToggleBar = () => {
             <ExpandCard 
                 title={{text: 'Física'}} 
                 subTitles={[
-                    {text: 'Elétrica'}, 
-                    {text: 'Óptica'}
+                    {text: 'Elétrica', link: 'eletrica'}, 
+                    {text: 'Óptica', link: 'optica'}
                 ]}
             />
             <ExpandCard 
                 title={{text: 'Matemática'}} 
                 subTitles={[
-                    {text: 'Reais'}, 
-                    {text: 'Imaginários'}, 
-                    {text: 'Trigonometria'}, 
-                    {text: 'Matrizes'}
+                    {text: 'Reais', link: 'reais'}, 
+                    {text: 'Imaginários', link: 'imaginarios'}, 
+                    {text: 'Trigonometria', link: 'trigonometria'}, 
+                    {text: 'Matrizes', link: 'matrizes'}
                 ]}
             />
             <ExpandCard 
                 title={{text: 'Programação'}} 
                 subTitles={[
-                    {text: 'JavaScript'}, 
-                    {text: 'C#'}, 
-                    {text: 'Python'}
+                    {text: 'JavaScript' , link: 'javascript'}, 
+                    {text: 'C#', link: 'csharp'}, 
+                    {text: 'Python', link: 'python'}
                 ]}
             />
         </div>

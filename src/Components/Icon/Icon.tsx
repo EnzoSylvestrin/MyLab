@@ -8,14 +8,13 @@ type IconProps = {
     className?: string
 }
 
-export const Icon = ({icon: IconComponent, size = 24, colored, className} : IconProps) => {
+export const Icon = ({icon: IconComponent, size = 28, colored, className} : IconProps) => {
     return (
         <IconComponent 
             className={clsx(
-                'w-6 h-6 ',
-                colored ? 'text-secondary' : 'text-darkColor dark:text-lightColor',
+                colored ? 'text-secondary fill-secondary' : 'text-darkColor fill-darkColor dark:text-lightColor dark:fill-lightColor',
                 className
-            )} 
+            )}
             size={size} 
         />
     );

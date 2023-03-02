@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ToggleBar } from './ToggleBar';
 
 const meta: Meta<typeof ToggleBar> = {
-  title: 'Components/ToggleBar',
+  title: 'Sections/ToggleBar',
   component: ToggleBar,
   tags: ['autodocs']
 };

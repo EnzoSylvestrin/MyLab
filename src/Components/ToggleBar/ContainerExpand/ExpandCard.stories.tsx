@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { GrTest } from 'react-icons/gr';
+import { TbMathAvg } from 'react-icons/tb';
 
 import { ExpandCard } from './ExpandCard';
 
@@ -21,7 +21,7 @@ export const Default: Story = {};
 
 export const WithIcon: Story = {
   args: {
-    subTitles: [{text: 'Elemento 1', Icon: GrTest, link: '#'}]
+    subTitles: [{text: 'Elemento 1', Icon: TbMathAvg, link: '#'}]
   }
 };
 
@@ -33,6 +33,6 @@ export const Multiple: Story = {
 
 export const MultipleWithIcon: Story = {
   args: {
-    subTitles: [{text: 'Elemento 1', link: '#'}, {text: 'Elemento 2', Icon: GrTest, link: '#'}]
+    subTitles: [{text: 'Elemento 1', link: '#'}, {text: 'Elemento 2', Icon: TbMathAvg, link: '#'}]
   }
 };

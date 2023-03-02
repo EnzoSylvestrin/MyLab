@@ -1,8 +1,7 @@
-import { Slot } from '@radix-ui/react-slot';
-import clsx from 'clsx';
-
 import { InputHTMLAttributes, ReactNode } from 'react';
+
 import { IconType } from 'react-icons/lib';
+
 import { Icon } from '../Icon/Icon';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}

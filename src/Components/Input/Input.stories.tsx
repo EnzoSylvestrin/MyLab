@@ -33,7 +33,7 @@ export const Default : Story = {
 export const IconColored : Story = {
     args: {
         children: [
-            <Input.Icon icon={BiEnvelope} colored/>,
+            <Input.Icon icon={BiEnvelope} colored />,
             <Input.Input placeholder="Digite seu email..." />
         ]
     }

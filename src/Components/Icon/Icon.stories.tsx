@@ -19,21 +19,21 @@ type Story = StoryObj<typeof Icon>;
 export const Default: Story = {};
 
 export const Colored: Story = {
-    args: {
-      colored: true
-    }
+  args: {
+    colored: true
+  }
 };
 
 export const CustomSize: Story = {
-    args: {
-      size: 32,
-    }
+  args: {
+    size: 32,
+  }
 };
 
 export const Custom: Story = {
-    args: {
-        colored: true,
-        size: 40,
-        className: 'transition-all duration-300 hover:scale-110'
-    }
+  args: {
+    colored: true,
+    size: 40,
+    className: 'transition-all duration-300 hover:scale-110'
+  }
 }

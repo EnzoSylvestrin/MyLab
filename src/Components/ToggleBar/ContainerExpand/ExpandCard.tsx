@@ -62,7 +62,7 @@ const TitleContainer = ({item} : {item: CardItem}) => {
             {
                 item.Icon != null 
                 ?
-                <Icon icon={item.Icon} />
+                <Icon icon={item.Icon} size={20} colored />
                 :
                 ''
             }
