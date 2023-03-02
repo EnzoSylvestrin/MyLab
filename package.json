@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.2",
+    "@radix-ui/react-collapsible": "^1.0.1",
     "@radix-ui/react-slot": "^1.0.1",
     "@types/node": "18.14.2",
     "@types/react": "18.0.28",

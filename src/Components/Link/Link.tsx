@@ -26,6 +26,7 @@ export const Link = ({ text, href, underline = false, colored = true, title, siz
         <Comp
             align={align}
             size={size}
+            className={className}
         >
             <NextLink
                 href={href}
@@ -35,7 +36,6 @@ export const Link = ({ text, href, underline = false, colored = true, title, siz
                         'hover:underline': underlineOnHover,
                         'underline': underline
                     },
-                    className,
                 )}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >

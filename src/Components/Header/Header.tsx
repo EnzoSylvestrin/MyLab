@@ -1,27 +1,23 @@
-import React, { useState } from 'react';
-
 import { Button } from '../Button/Button';
 import { Link } from '../Link/Link';
-import { Theme } from '../Theme/Theme';
+import { Theme, ThemeProps } from '../Theme/Theme';
 
 type User = {
   name: string;
 };
 
-interface HeaderProps {
+type HeaderProps = ThemeProps & {
   user?: User;
   onLogin?: () => void;
   onLogout?: () => void;
   onCreateAccount?: () => void;
 }
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => {
+export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: HeaderProps) => {
 
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-  
   return (
     <header>
-      <nav className='w-full py-3 px-8 flex items-center justify-between border-b-[1px] border-b-secondary bg-grayMain dark:bg-blackMain '>
+      <nav className='w-full min-h-[60px] h-[8vh] py-3 px-8 flex items-center justify-between border-b-[1px] border-b-secondary bg-grayMain dark:bg-blackMain '>
         <Link href='#' size='md' text='MyLab' underlineOnHover={false} title />
         <div className='flex items-center justify-center'>
           <Theme setTheme={setTheme} />

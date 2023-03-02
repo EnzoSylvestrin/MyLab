@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { BiSun } from "react-icons/bi";
 import { TbMoonStars } from 'react-icons/tb';
 
-type ThemeProps = {
+export type ThemeProps = {
     setTheme: Dispatch<SetStateAction<"light" | "dark">>;
 }
 

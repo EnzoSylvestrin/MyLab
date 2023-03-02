@@ -4,8 +4,13 @@ import Head from 'next/head';
 
 import '@/styles/globals.css';
 import { Header } from '@/Components/Header/Header';
+import { ToggleBar } from '@/Components/ToggleBar/ToggleBar';
+import { useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
+
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
   return (
     <>
       <Head>
@@ -15,8 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className=''>
-        <Header />
+      <section className={theme === 'dark' ? 'dark' : ''}>
+        <Header setTheme={setTheme}/>
+        <ToggleBar />
         <Component {...pageProps} />
       </section>
     </>
