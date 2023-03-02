@@ -1,6 +1,8 @@
+import '../src/styles/globals.css';
+
 import type { Preview } from "@storybook/react";
 
-import '../src/styles/globals.css';
+import { ThemedDocsContainer } from "./DocsContainer";
 
 const preview: Preview = {
   parameters: {
@@ -19,6 +21,9 @@ const preview: Preview = {
       darkClass: ['dark', 'darkbg'],
       lightClass: 'lightbg',
       stylePreview: true,
+    },
+    docs: {
+      container: ThemedDocsContainer,
     },
   },
 };

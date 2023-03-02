@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 
 import { Theme } from './Theme';
 
@@ -11,11 +11,13 @@ const meta: Meta<typeof Theme> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Theme>;
-
 
 export const Default = () => {
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   
-    return <Theme setTheme={setTheme} />;
+    return (
+        <div className={theme == 'dark' ? 'dark' : ''}>
+            <Theme setTheme={setTheme} />
+        </div>
+    );
 };
