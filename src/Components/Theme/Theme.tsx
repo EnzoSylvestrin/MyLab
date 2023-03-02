@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-import { BiMoon, BiSun } from "react-icons/bi";
+import { BiSun } from "react-icons/bi";
+import { TbMoonStars } from 'react-icons/tb';
 
 type ThemeProps = {
     setTheme: Dispatch<SetStateAction<"light" | "dark">>;
@@ -21,12 +22,12 @@ export const Theme = ({ setTheme } : ThemeProps) => {
         setdarkMode(theme == null ? true : theme == 'dark' ? true : false);
     }, []);
 
-    const Icon = darkMode ? BiSun : BiMoon;
+    const Icon = darkMode ? BiSun : TbMoonStars;
 
     return (
         <Icon
-            className="text-darkColor text-xxl transition-all duration-300 hover:scale-110 dark:text-lightColor"
-            size={32}
+            className="text-darkColor text-xxl transition-all duration-300 hover:scale-105 dark:text-lightColor"
+            size={28}
             onClick={ToggleMode}
         />
     );
