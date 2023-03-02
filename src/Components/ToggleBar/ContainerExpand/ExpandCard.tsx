@@ -7,6 +7,7 @@ import { RxCaretRight, RxCaretDown } from 'react-icons/rx';
 
 import { Heading } from '@/Components/Heading/Heading';
 import { Text } from '@/Components/Text/Text';
+import { Icon } from '@/Components/Icon/Icon';
 
 type CardItem = {
     link?: string,
@@ -36,7 +37,7 @@ export const ExpandCard = ({title, subTitles} : ExpandCardProps) => {
                 </Collapsible.Trigger>
             </div>
             <Collapsible.Content>
-                <div className='flex flex-col items-center pl-2 border-l-[1px] border-l-secondary mt-1'>
+                <div className='flex flex-col items-center pl-1 border-l-[1px] border-l-secondary mt-1'>
                     {
                         subTitles.map(subTitle => {
                             return (
@@ -61,7 +62,7 @@ const TitleContainer = ({item} : {item: CardItem}) => {
             {
                 item.Icon != null 
                 ?
-                <item.Icon />
+                <Icon icon={item.Icon} />
                 :
                 ''
             }

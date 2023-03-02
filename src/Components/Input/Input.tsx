@@ -2,6 +2,8 @@ import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 
 import { InputHTMLAttributes, ReactNode } from 'react';
+import { IconType } from 'react-icons/lib';
+import { Icon } from '../Icon/Icon';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
@@ -20,18 +22,13 @@ function InputRoot({children} : InputRootProps) {
 InputRoot.displayName = 'Input.Root';
 
 export interface IconProps {
-    children: ReactNode,
+    icon: IconType,
     colored?: boolean,
 }
 
-function InputIcon({children, colored} : IconProps) {
+function InputIcon({icon, colored} : IconProps) {
     return (
-        <Slot className={clsx(
-            'w-6 h-6 ',
-            colored ? 'text-secondary' : 'text-darkColor dark:text-lightColor'
-        )}>
-            {children}
-        </Slot>
+        <Icon icon={icon} colored={colored} />
     )
 }
 

@@ -24,9 +24,7 @@ type Story = StoryObj<InputRootProps>;
 export const Default : Story = {
     args: {
         children: [
-            <Input.Icon>
-                <BiEnvelope />
-            </Input.Icon>,
+            <Input.Icon icon={BiEnvelope} />,
             <Input.Input placeholder="Digite seu email..." />
         ]
     },
@@ -35,9 +33,7 @@ export const Default : Story = {
 export const IconColored : Story = {
     args: {
         children: [
-            <Input.Icon colored>
-                <BiEnvelope />
-            </Input.Icon>,
+            <Input.Icon icon={BiEnvelope} colored/>,
             <Input.Input placeholder="Digite seu email..." />
         ]
     }
