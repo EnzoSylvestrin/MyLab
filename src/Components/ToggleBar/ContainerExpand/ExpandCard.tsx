@@ -1,16 +1,22 @@
+import { useState } from 'react';
+
 import * as Collapsible from '@radix-ui/react-collapsible';
 
-
+import { IconType } from 'react-icons/lib';
 import { RxCaretRight, RxCaretDown } from 'react-icons/rx'; 
 
-import { useState } from 'react';
 import { Heading } from '@/Components/Heading/Heading';
-import { Link } from '@/Components/Link/Link';
 import { Text } from '@/Components/Text/Text';
 
+type CardItem = {
+    link?: string,
+    text: string,
+    Icon?: IconType,
+}
+
 type ExpandCardProps = {
-    title: string,
-    subTitles: string[],
+    title: CardItem,
+    subTitles: CardItem[],
 }
 
 export const ExpandCard = ({title, subTitles} : ExpandCardProps) => {
@@ -22,9 +28,7 @@ export const ExpandCard = ({title, subTitles} : ExpandCardProps) => {
     return (
         <Collapsible.Root className='w-full' open={open} onOpenChange={setOpen}>
             <div className='flex items-center justify-between'>
-                <Heading size='sm' className="leading-[25px]">
-                    {title}
-                </Heading>
+                <TitleContainer item={title}/>
                 <Collapsible.Trigger asChild>
                     <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-blackMain shadow-md data-[state=closed]:bg-grayMain transition-colors duration-150 dark:data-[state=closed]:bg-blackMain dark:text-grayMain">
                         {open ? <RxCaretDown size={IconSize} /> : <RxCaretRight size={IconSize} />}
@@ -37,7 +41,7 @@ export const ExpandCard = ({title, subTitles} : ExpandCardProps) => {
                         subTitles.map(subTitle => {
                             return (
                                 <div className='cursor-pointer w-full p-1 hover:bg-[rgba(10,_10,_10,_0.35)]'>
-                                    <Text>{subTitle}</Text>
+                                    <TitleContainer item={subTitle} />
                                 </div>
                             )
                         })
@@ -45,5 +49,25 @@ export const ExpandCard = ({title, subTitles} : ExpandCardProps) => {
                 </div>
             </Collapsible.Content>
         </Collapsible.Root>
+    );
+}
+
+const TitleContainer = ({item} : {item: CardItem}) => {
+    
+    const CompText = item.link != null ? Text : Heading;
+    
+    return (
+        <div className='flex gap-1 items-center'>
+            {
+                item.Icon != null 
+                ?
+                <item.Icon />
+                :
+                ''
+            }
+            <CompText size='sm' className="leading-[25px]">
+                {item.text}
+            </CompText>
+        </div>
     );
 }
