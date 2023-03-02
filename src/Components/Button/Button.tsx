@@ -16,8 +16,8 @@ export const Button = ({ size = 'md', type = "button", text, href, full, onClick
     <Button
       type={type}
       className={clsx(
-        "rounded-xl bg-secondary text-white ring-secondary ring-2 transition-all duration-500 ",
-        "px-[.65rem] py-2 cursor-pointer shadow-lg ",
+        "rounded-lg bg-secondary text-white ring-secondary ring-2 transition-all duration-500 ",
+        "px-2 py-1 cursor-pointer shadow-lg ",
         'hover:bg-transparent hover:text-secondary', {
         'text-sm': size === 'sm',
         'text-md': size === 'md',
