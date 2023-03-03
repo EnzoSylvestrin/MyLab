@@ -17,7 +17,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: H
 
   return (
     <header>
-      <nav className='w-full min-h-[60px] h-[8vh] py-3 px-4 flex items-center justify-between border-b-[1px] border-b-secondary bg-grayMain dark:bg-blackMain '>
+      <nav className='w-full fixed min-h-[60px] h-[8vh] py-3 px-4 flex items-center justify-between bg-grayMain dark:bg-blackMain'>
         <Link href='#' size='md' text='MyLab' underlineOnHover={false} title />
         <div className='flex items-center justify-center'>
           <Theme setTheme={setTheme} />
@@ -26,6 +26,9 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: H
             <li><Link href="#" text='Login' colored={false} /></li>
             <li><Button text='SignUp' /></li>
           </ul>
+        </div>
+        <div className='absolute bottom-0 -ml-[1px] left-56 w-full h-[1px] bg-secondary'>
+
         </div>
       </nav>
     </header>

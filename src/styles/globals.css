@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap');
 
+:root {
+  --bgColor: #333333;
+  --colorInverse: #f5f5f5;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -20,15 +25,15 @@ a {
 }
 
 .darkbg {
-  background-color: #282828;
+  background-color: var(--bgColor);
 }
 
 .darkbg .docs-story {
-  background-color: #282828;
+  background-color: var(--bgColor);
 }
 
 .lightbg {
-  background-color: #f5f5f5;
+  background-color: var(--bgColor);
 }
 
 ::selection {
@@ -40,16 +45,16 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #222121;
+  background: var(--bgColor);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e8e8e8;
+  background: var(--colorInverse);
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e8e8e8;
+  background: var(--colorInverse);
 }
 
 ::-webkit-input-placeholder {

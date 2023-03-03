@@ -3,21 +3,28 @@ import { useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
 
 import { IconType } from 'react-icons/lib';
-import { RxCaretRight, RxCaretDown } from 'react-icons/rx';
+import { RxCaretRight } from 'react-icons/rx';
 
 import { motion } from 'framer-motion';
 
 import { Text } from '@/Components/Text/Text';
 import { Icon } from '@/Components/Icon/Icon';
+import Link from 'next/link';
 
 type CardItem = {
+    link: string,
+    text: string,
+    Icon?: IconType,
+}
+
+type CardTitle = {
     link?: string,
     text: string,
     Icon?: IconType,
 }
 
 type ExpandCardProps = {
-    title: CardItem,
+    title: CardTitle,
     subTitles: CardItem[],
 }
 
@@ -66,19 +73,42 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
     );
 }
 
-const TitleContainer = ({ item }: { item: CardItem }) => {
+const TitleContainer = ({ item }: { item: CardItem | CardTitle }) => {
     return (
-        <div className='flex gap-1 items-center'>
-            {
-                item.Icon != null
-                    ?
-                    <Icon icon={item.Icon} size={20} colored />
-                    :
-                    ''
-            }
-            <Text size={item.link != null ? 'sm' : 'lg'}>
-                {item.text}
-            </Text>
-        </div>
+        <>
+        {
+            item.link == null
+            ?
+                <div className='flex gap-1 items-center'>
+                    {
+                        item.Icon != null
+                            ?
+                            <Icon icon={item.Icon} size={20} colored />
+                            :
+                            ''
+                    }
+                    <Text size={'lg'}>
+                        {item.text}
+                    </Text>
+                </div>
+            :
+            <Link href={`/${item.link}`}>
+                <div className='flex gap-1 items-center'>
+                    {
+                        item.Icon != null
+                            ?
+                            <Icon icon={item.Icon} size={20} colored />
+                            :
+                            ''
+                    }
+                    <Text size={'sm'}>
+                        {item.text}
+                    </Text>
+                </div>
+            </Link>
+
+        }
+            
+        </>
     );
 }

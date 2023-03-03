@@ -14,6 +14,8 @@ export const Theme = ({ setTheme } : ThemeProps) => {
     const ToggleMode = () => {
         setdarkMode(!darkMode);
         setTheme(darkMode ? 'light' : 'dark');
+        document.body.style.setProperty('--bgColor', darkMode ? '#f5f5f5' : '#333333');
+        document.body.style.setProperty('--colorInverse', darkMode ? '#333333' : '#f5f5f5');
         localStorage.setItem('theme', darkMode ? 'light' : 'dark');
     }
 
@@ -21,6 +23,8 @@ export const Theme = ({ setTheme } : ThemeProps) => {
         let theme = localStorage.getItem('theme');
         setdarkMode(theme == null ? true : theme === 'dark' ? true : false);
         setTheme(theme == null ? 'dark' : theme === 'dark' ? 'dark' : 'light');
+        document.body.style.setProperty('--bgColor', theme != "light" ? '#333333' : '#f5f5f5');
+        document.body.style.setProperty('--colorInverse', theme != "light" ? '#f5f5f5' : '#333333');
     }, []);
 
     const Icon = darkMode ? BiSun : TbMoonStars;

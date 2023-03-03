@@ -20,10 +20,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className={theme === 'dark' ? 'dark' : ''}>
+      <section className={theme === 'dark' ? 'dark darkbg' : 'lightbg'}>
         <Header setTheme={setTheme}/>
         <ToggleBar />
-        <Component {...pageProps} />
+        <section className='bg-grayMain min-h-[200vh] pl-56 dark:bg-blackMain'>
+          <Component {...pageProps} />
+        </section>
       </section>
     </>
   )
