@@ -29,24 +29,33 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
 
     return (
         <Collapsible.Root className='w-full' open={open} onOpenChange={setOpen}>
-            <div className='flex items-center justify-between'>
-                <TitleContainer item={title} />
-                <Collapsible.Trigger asChild>
+            <Collapsible.Trigger asChild>
+                <div className='cursor-pointer flex items-center justify-between'>
+                    <TitleContainer item={title} />
                     <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-blackMain shadow-md data-[state=closed]:bg-grayMain transition-colors duration-150 dark:data-[state=closed]:bg-blackMain dark:text-grayMain">
-                        {open ? <RxCaretDown size={IconSize} /> : <RxCaretRight size={IconSize} />}
+                        <motion.div
+                            initial={{rotate: 0}}
+                            animate={{ rotate: open ? 90 : 0}}
+                            transition={{ duration: 0.6, type: "spring" }}
+                        >
+                            <RxCaretRight 
+                                size={IconSize}
+                                
+                            />
+                        </motion.div>
                     </button>
-                </Collapsible.Trigger>
-            </div>
+                </div>
+            </Collapsible.Trigger>
             <motion.div
                 className='overflow-hidden'
                 initial={{ height: 0 }}
                 animate={{ height: open ? 'auto' : 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.6, type: "spring", }}
             >
                 <div className='flex flex-col items-center pl-1 border-l-[1px] border-l-secondary mt-2'>
                     {subTitles.map((subTitle) => {
                         return (
-                            <div className='cursor-pointer w-full p-1 hover:bg-[rgba(10,_10,_10,_0.35)]' key={subTitle.link}>
+                            <div className='w-full p-1 hover:bg-[rgba(10,_10,_10,_0.35)]' key={subTitle.link}>
                                 <TitleContainer item={subTitle} />
                             </div>
                         );

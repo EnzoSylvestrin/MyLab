@@ -18,8 +18,9 @@ export const Theme = ({ setTheme } : ThemeProps) => {
     }
 
     useEffect(() => {
-        let theme: string | null = localStorage.getItem('theme');
-        setdarkMode(theme == null ? true : theme == 'dark' ? true : false);
+        let theme = localStorage.getItem('theme');
+        setdarkMode(theme == null ? true : theme === 'dark' ? true : false);
+        setTheme(theme == null ? 'dark' : theme === 'dark' ? 'dark' : 'light');
     }, []);
 
     const Icon = darkMode ? BiSun : TbMoonStars;
