@@ -7,10 +7,11 @@ import { RootState, open as Open, close } from '../../stores/MenuStore';
 import { ExpandCard } from './ContainerExpand/ExpandCard';
 
 import { TbMathFunction } from 'react-icons/tb';
-import { BiAtom, BiX } from 'react-icons/bi';
+import { BiAtom, BiMenu, BiX } from 'react-icons/bi';
 import { HiCode } from 'react-icons/hi';
 
 import { Icon } from '../Icon/Icon';
+import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
 
 export const ToggleBar = () => {
 
@@ -29,8 +30,8 @@ export const ToggleBar = () => {
                     translateX: open ? '0' : '-240px',
                 }}
                 transition={{
-                    duration: 0.4,
-                    ease: 'easeIn',
+                    duration: DURATION_ANIMATION,
+                    type: ANIMATION_TYPE,
                 }}
             >
                 <ExpandCard
@@ -60,7 +61,7 @@ export const ToggleBar = () => {
                 
             </motion.div>
             <motion.div 
-                className='fixed flex items-center justify-center rounded-full z-[999] top-[calc(8vh_+_10px)] p-1 bg-cyan-200 cursor-pointer'
+                className='fixed flex items-center justify-center rounded-full z-[999] top-[calc(8vh_+_10px)] p-1 bg-cyan-200 cursor-pointer dark:bg-secondary '
                 onClick={HandleToogleMenu}
                 initial={{
                     left: '248px'
@@ -69,11 +70,11 @@ export const ToggleBar = () => {
                     left: open ? '248px' : '8px'
                 }}
                 transition={{
-                    duration: 0.4,
-                    ease: 'easeIn'
+                    duration: DURATION_ANIMATION,
+                    type: ANIMATION_TYPE,
                 }}
             >
-                <Icon icon={BiX} size={20} />
+                <Icon icon={open ? BiX : BiMenu} size={20} />
             </motion.div>
         </>
     );

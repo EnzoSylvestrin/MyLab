@@ -31,11 +31,11 @@ export const Theme = ({ setTheme } : ThemeProps) => {
 
     return (
         <div
-            className="rounded-full p-1 hover:"
+            className="rounded-full p-[6px] hover:bg-[#ebedf0] dark:hover:bg-[#444950] hover:scale"
             onClick={ToggleMode}
         >
             <Icon
-                className="text-darkColor text-xxl transition-all duration-300 hover:scale-105 dark:text-lightColor"
+                className="text-darkColor text-xxl transition-all duration-300 dark:text-lightColor"
                 size={28}
             />
         </div>
