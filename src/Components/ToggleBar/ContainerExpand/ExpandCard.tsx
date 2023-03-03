@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 import { Text } from '@/Components/Text/Text';
 import { Icon } from '@/Components/Icon/Icon';
+
 import Link from 'next/link';
 
 type CardItem = {
@@ -106,9 +107,7 @@ const TitleContainer = ({ item }: { item: CardItem | CardTitle }) => {
                     </Text>
                 </div>
             </Link>
-
         }
-            
         </>
     );
 }
