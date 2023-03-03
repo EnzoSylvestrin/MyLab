@@ -1,36 +1,80 @@
+import { motion } from 'framer-motion';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { RootState, open as Open, close } from '../../stores/MenuStore';
+
 import { ExpandCard } from './ContainerExpand/ExpandCard';
 
 import { TbMathFunction } from 'react-icons/tb';
-import { BiAtom } from 'react-icons/bi';
+import { BiAtom, BiX } from 'react-icons/bi';
 import { HiCode } from 'react-icons/hi';
 
+import { Icon } from '../Icon/Icon';
+
 export const ToggleBar = () => {
+
+    const open = useSelector((state : RootState) => state.isContextMenuOpen);
+    const dispatch = useDispatch();
+
+    const HandleToogleMenu = () => {
+        open ? dispatch(close()) : dispatch(Open());
+    }
+
     return (
-        <div className="flex flex-col gap-5 w-56 h-[92vh] fixed p-4 mt-[8vh] bg-grayMain dark:bg-blackMain overflow-y-scroll border-r-[1px] border-r-secondary">
-            <ExpandCard
-                title={{text: 'Física', Icon: BiAtom}} 
-                subTitles={[
-                    {text: 'Elétrica', link: 'eletrica'}, 
-                    {text: 'Óptica', link: 'optica'}
-                ]}
-            />
-            <ExpandCard
-                title={{text: 'Matemática', Icon: TbMathFunction}} 
-                subTitles={[
-                    {text: 'Reais', link: 'reais'}, 
-                    {text: 'Imaginários', link: 'imaginarios'}, 
-                    {text: 'Trigonometria', link: 'trigonometria'}, 
-                    {text: 'Matrizes', link: 'matrizes'}
-                ]}
-            />
-            <ExpandCard
-                title={{text: 'Programação', Icon: HiCode}} 
-                subTitles={[
-                    {text: 'JavaScript' , link: 'javascript'}, 
-                    {text: 'C#', link: 'csharp'}, 
-                    {text: 'Python', link: 'python'}
-                ]}
-            />
-        </div>
+        <>
+            <motion.div 
+                className="flex flex-col gap-5 w-60 h-[calc(92vh_+_1px)] fixed p-4 mt-[calc(8vh_-_1px)] z-10  overflow-y-scroll border-r-[1px] border-r-secondary bg-grayMain dark:bg-blackMain"
+                animate={{
+                    translateX: open ? '0' : '-240px',
+                }}
+                transition={{
+                    duration: 0.4,
+                    ease: 'easeIn',
+                }}
+            >
+                <ExpandCard
+                    title={{text: 'Física', Icon: BiAtom}} 
+                    subTitles={[
+                        {text: 'Elétrica', link: 'eletrica'}, 
+                        {text: 'Óptica', link: 'optica'}
+                    ]}
+                />
+                <ExpandCard
+                    title={{text: 'Matemática', Icon: TbMathFunction}} 
+                    subTitles={[
+                        {text: 'Reais', link: 'reais'}, 
+                        {text: 'Imaginários', link: 'imaginarios'}, 
+                        {text: 'Trigonometria', link: 'trigonometria'}, 
+                        {text: 'Matrizes', link: 'matrizes'}
+                    ]}
+                />
+                <ExpandCard
+                    title={{text: 'Programação', Icon: HiCode}} 
+                    subTitles={[
+                        {text: 'JavaScript' , link: 'javascript'}, 
+                        {text: 'C#', link: 'csharp'}, 
+                        {text: 'Python', link: 'python'}
+                    ]}
+                />
+                
+            </motion.div>
+            <motion.div 
+                className='fixed flex items-center justify-center rounded-full z-[999] top-[calc(8vh_+_10px)] p-1 bg-cyan-200 cursor-pointer'
+                onClick={HandleToogleMenu}
+                initial={{
+                    left: '248px'
+                }}
+                animate={{
+                    left: open ? '248px' : '8px'
+                }}
+                transition={{
+                    duration: 0.4,
+                    ease: 'easeIn'
+                }}
+            >
+                <Icon icon={BiX} size={20} />
+            </motion.div>
+        </>
     );
 }

@@ -30,10 +30,14 @@ export const Theme = ({ setTheme } : ThemeProps) => {
     const Icon = darkMode ? BiSun : TbMoonStars;
 
     return (
-        <Icon
-            className="text-darkColor text-xxl transition-all duration-300 hover:scale-105 dark:text-lightColor"
-            size={28}
+        <div
+            className="rounded-full p-1 hover:"
             onClick={ToggleMode}
-        />
+        >
+            <Icon
+                className="text-darkColor text-xxl transition-all duration-300 hover:scale-105 dark:text-lightColor"
+                size={28}
+            />
+        </div>
     );
 }

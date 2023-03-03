@@ -1,18 +1,22 @@
-import type { AppProps } from 'next/app';
+import { useState } from 'react';
 
+import { Provider } from 'react-redux'
+import store from '../stores/MenuStore';
+
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import '@/styles/globals.css';
 import { Header } from '@/Components/Header/Header';
 import { ToggleBar } from '@/Components/ToggleBar/ToggleBar';
-import { useState } from 'react';
+
+import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
 
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   return (
-    <>
+    <Provider store={store}>
       <Head>
         <title>MyLab</title>
         <meta name="description" content="Site feito para aplicar conceitos acadêmicos por meio da programação" />
@@ -23,10 +27,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <section className={theme === 'dark' ? 'dark' : ''}>
         <Header setTheme={setTheme}/>
         <ToggleBar />
-        <section className='bg-grayMain pl-56 pt-[8vh] min-h-[100vh] h-[100vh] dark:bg-blackMain'>
+        <section className='bg-grayMain pl-56 pt-[8vh] z-10 min-h-[100vh] h-[100vh] dark:bg-blackMain'>
           <Component {...pageProps} />
         </section>
       </section>
-    </>
+    </Provider>
   )
 }
