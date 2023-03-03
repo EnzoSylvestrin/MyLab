@@ -18,7 +18,7 @@ export const Heading = ({children, size = 'md', className, align = 'left', ...pr
     return (
         <Comp
             className={clsx(
-                'text-neutral-900 dark:text-gray-50',
+                'font-bold text-neutral-900 dark:text-gray-50',
                 {
                     'text-xl': size === 'sm',
                     'text-xxl': size === 'md',

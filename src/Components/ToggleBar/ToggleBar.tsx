@@ -7,14 +7,14 @@ import { HiCode } from 'react-icons/hi';
 export const ToggleBar = () => {
     return (
         <div className="flex flex-col gap-5 w-56 h-[92vh] fixed p-4 mt-[8vh] bg-grayMain dark:bg-blackMain overflow-y-scroll border-r-[1px] border-r-secondary">
-            <ExpandCard 
+            <ExpandCard
                 title={{text: 'Física', Icon: BiAtom}} 
                 subTitles={[
                     {text: 'Elétrica', link: 'eletrica'}, 
                     {text: 'Óptica', link: 'optica'}
                 ]}
             />
-            <ExpandCard 
+            <ExpandCard
                 title={{text: 'Matemática', Icon: TbMathFunction}} 
                 subTitles={[
                     {text: 'Reais', link: 'reais'}, 
@@ -23,7 +23,7 @@ export const ToggleBar = () => {
                     {text: 'Matrizes', link: 'matrizes'}
                 ]}
             />
-            <ExpandCard 
+            <ExpandCard
                 title={{text: 'Programação', Icon: HiCode}} 
                 subTitles={[
                     {text: 'JavaScript' , link: 'javascript'}, 

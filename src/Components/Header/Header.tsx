@@ -14,7 +14,6 @@ type HeaderProps = ThemeProps & {
 }
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: HeaderProps) => {
-
   return (
     <header>
       <nav className='w-full fixed min-h-[60px] h-[8vh] py-3 px-4 flex items-center justify-between bg-grayMain dark:bg-blackMain'>
@@ -27,9 +26,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: H
             <li><Button text='SignUp' /></li>
           </ul>
         </div>
-        <div className='absolute bottom-0 -ml-[1px] left-56 w-full h-[1px] bg-secondary'>
-
-        </div>
+        <div className='absolute bottom-0 -ml-[1px] left-56 w-full h-[1px] bg-secondary' />
       </nav>
     </header>
   )
