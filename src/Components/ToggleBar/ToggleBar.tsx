@@ -15,7 +15,7 @@ import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
 
 export const ToggleBar = () => {
 
-    const open = useSelector((state : RootState) => state.isContextMenuOpen);
+    const open = useSelector((state: RootState) => state.isContextMenuOpen);
     const dispatch = useDispatch();
 
     const HandleToogleMenu = () => {
@@ -24,8 +24,8 @@ export const ToggleBar = () => {
 
     return (
         <>
-            <motion.div 
-                className="flex flex-col gap-5 w-60 h-[calc(92vh_+_1px)] fixed p-4 mt-[calc(8vh_-_1px)] z-10  overflow-y-scroll border-r-[1px] border-r-secondary bg-grayMain dark:bg-blackMain"
+            <motion.div
+                className="flex flex-col gap-5 w-60 h-[calc(100vh_-_64px)] fixed p-4 mt-[63px] z-10  overflow-y-scroll border-r-[1px] border-r-secondary bg-grayMain dark:bg-blackMain"
                 animate={{
                     translateX: open ? '0' : '-240px',
                 }}
@@ -35,33 +35,33 @@ export const ToggleBar = () => {
                 }}
             >
                 <ExpandCard
-                    title={{text: 'Física', Icon: BiAtom}} 
+                    title={{ text: 'Física', Icon: BiAtom }}
                     subTitles={[
-                        {text: 'Elétrica', link: 'eletrica'}, 
-                        {text: 'Óptica', link: 'optica'}
+                        { text: 'Elétrica', link: 'eletrica' },
+                        { text: 'Óptica', link: 'optica' }
                     ]}
                 />
                 <ExpandCard
-                    title={{text: 'Matemática', Icon: TbMathFunction}} 
+                    title={{ text: 'Matemática', Icon: TbMathFunction }}
                     subTitles={[
-                        {text: 'Reais', link: 'reais'}, 
-                        {text: 'Imaginários', link: 'imaginarios'}, 
-                        {text: 'Trigonometria', link: 'trigonometria'}, 
-                        {text: 'Matrizes', link: 'matrizes'}
+                        { text: 'Reais', link: 'reais' },
+                        { text: 'Imaginários', link: 'imaginarios' },
+                        { text: 'Trigonometria', link: 'trigonometria' },
+                        { text: 'Matrizes', link: 'matrizes' }
                     ]}
                 />
                 <ExpandCard
-                    title={{text: 'Programação', Icon: HiCode}} 
+                    title={{ text: 'Programação', Icon: HiCode }}
                     subTitles={[
-                        {text: 'JavaScript' , link: 'javascript'}, 
-                        {text: 'C#', link: 'csharp'}, 
-                        {text: 'Python', link: 'python'}
+                        { text: 'JavaScript', link: 'javascript' },
+                        { text: 'C#', link: 'csharp' },
+                        { text: 'Python', link: 'python' }
                     ]}
                 />
-                
+
             </motion.div>
-            <motion.div 
-                className='fixed flex items-center justify-center rounded-full z-[999] top-[calc(8vh_+_10px)] p-1 bg-cyan-200 cursor-pointer dark:bg-secondary '
+            <motion.div
+                className='fixed flex items-center justify-center rounded-full z-[999] top-[70px] p-1 bg-cyan-200 cursor-pointer dark:bg-secondary '
                 onClick={HandleToogleMenu}
                 initial={{
                     left: '248px'
