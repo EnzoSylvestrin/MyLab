@@ -9,6 +9,7 @@ import { ExpandCard } from './ContainerExpand/ExpandCard';
 import { TbMathFunction } from 'react-icons/tb';
 import { BiAtom, BiMenu, BiX } from 'react-icons/bi';
 import { HiCode } from 'react-icons/hi';
+import { FcElectricity } from 'react-icons/fc';
 
 import { Icon } from '../Icon/Icon';
 import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
@@ -25,7 +26,7 @@ export const ToggleBar = () => {
     return (
         <>
             <motion.div
-                className="flex flex-col gap-5 w-60 h-[calc(100vh_-_64px)] fixed p-4 mt-[63px] z-10  overflow-y-scroll border-r-[1px] border-r-secondary bg-grayMain dark:bg-blackMain"
+                className="flex flex-col gap-5 w-60 h-[calc(100vh_-_64px)] fixed p-4 mt-[63px] z-10  overflow-y-scroll border-r-[1px] border-r-secondary transition-colors duration-300 shadow-lg bg-grayMain dark:bg-darkMain"
                 animate={{
                     translateX: open ? '0' : '-240px',
                 }}
@@ -37,7 +38,7 @@ export const ToggleBar = () => {
                 <ExpandCard
                     title={{ text: 'Física', Icon: BiAtom }}
                     subTitles={[
-                        { text: 'Elétrica', link: 'eletrica' },
+                        { text: 'Elétrica', link: 'eletrica', Icon: FcElectricity },
                         { text: 'Óptica', link: 'optica' }
                     ]}
                 />
@@ -58,7 +59,6 @@ export const ToggleBar = () => {
                         { text: 'Python', link: 'python' }
                     ]}
                 />
-
             </motion.div>
             <motion.div
                 className='fixed flex items-center justify-center rounded-full z-[999] top-[70px] p-1 bg-cyan-200 cursor-pointer dark:bg-secondary '

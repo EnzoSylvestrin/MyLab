@@ -10,9 +10,11 @@ module.exports = {
         secondary: '#0bd9d9',
         red: '#FE4A49',
         grayMain: '#f5f5f5',
-        blackMain: '#333333',
+        darkMain: '#333333',
         darkColor: 'rgb(23 23 23)',
         lightColor: 'rgb(249 250 251)',
+        lightHover: '#ebedf0',
+        darkHover: '#444950',
       },
       fontFamily: {
         work: 'Work Sans, sans-serif'

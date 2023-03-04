@@ -40,15 +40,15 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
             <Collapsible.Trigger asChild>
                 <div className='cursor-pointer flex items-center justify-between'>
                     <TitleContainer item={title} />
-                    <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-blackMain shadow-md data-[state=closed]:bg-grayMain transition-colors duration-150 dark:data-[state=closed]:bg-blackMain dark:text-grayMain">
+                    <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-darkMain shadow-md data-[state=closed]:bg-grayMain transition-colors duration-150 dark:data-[state=closed]:bg-darkMain dark:text-grayMain">
                         <motion.div
-                            initial={{rotate: 0}}
-                            animate={{ rotate: open ? 90 : 0}}
+                            initial={{ rotate: 0 }}
+                            animate={{ rotate: open ? 90 : 0 }}
                             transition={{ duration: 0.6, type: "spring" }}
                         >
-                            <RxCaretRight 
+                            <RxCaretRight
                                 size={IconSize}
-                                
+
                             />
                         </motion.div>
                     </button>
@@ -63,7 +63,7 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                 <div className='flex flex-col items-center pl-1 border-l-[1px] border-l-secondary mt-2'>
                     {subTitles.map((subTitle) => {
                         return (
-                            <div className='w-full p-1 hover:bg-[rgba(10,_10,_10,_0.35)]' key={subTitle.link}>
+                            <div className='w-full p-1 hover:bg-lightHover dark:hover:bg-darkHover' key={subTitle.link}>
                                 <TitleContainer item={subTitle} />
                             </div>
                         );
@@ -77,37 +77,37 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
 const TitleContainer = ({ item }: { item: CardItem | CardTitle }) => {
     return (
         <>
-        {
-            item.link == null
-            ?
-                <div className='flex gap-1 items-center'>
-                    {
-                        item.Icon != null
-                            ?
-                            <Icon icon={item.Icon} size={20} colored />
-                            :
-                            ''
-                    }
-                    <Text size={'lg'}>
-                        {item.text}
-                    </Text>
-                </div>
-            :
-            <Link href={`/${item.link}`}>
-                <div className='flex gap-1 items-center'>
-                    {
-                        item.Icon != null
-                            ?
-                            <Icon icon={item.Icon} size={20} colored />
-                            :
-                            ''
-                    }
-                    <Text size={'sm'}>
-                        {item.text}
-                    </Text>
-                </div>
-            </Link>
-        }
+            {
+                item.link == null
+                    ?
+                    <div className='flex gap-1 items-center'>
+                        {
+                            item.Icon != null
+                                ?
+                                <Icon icon={item.Icon} size={20} colored />
+                                :
+                                ''
+                        }
+                        <Text size={'lg'}>
+                            {item.text}
+                        </Text>
+                    </div>
+                    :
+                    <Link href={item.link}>
+                        <div className='flex gap-1 items-center'>
+                            {
+                                item.Icon != null
+                                    ?
+                                    <Icon icon={item.Icon} size={20} colored />
+                                    :
+                                    ''
+                            }
+                            <Text size={'sm'}>
+                                {item.text}
+                            </Text>
+                        </div>
+                    </Link>
+            }
         </>
     );
 }

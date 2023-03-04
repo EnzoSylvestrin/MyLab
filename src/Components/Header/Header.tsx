@@ -16,7 +16,7 @@ type HeaderProps = ThemeProps & {
 export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: HeaderProps) => {
   return (
     <header>
-      <nav className='w-full fixed h-16 border-b-[1px] border-b-secondary py-3 px-4 flex items-center justify-between bg-grayMain dark:bg-blackMain'>
+      <nav className='w-full fixed h-16 border-b-[1px] shadow-lg border-b-secondary py-3 px-4 flex items-center justify-between transition-colors duration-300 bg-grayMain dark:bg-darkMain'>
         <Link href='#' size='md' text='MyLab' underlineOnHover={false} title />
         <div className='flex items-center justify-center'>
           <Theme setTheme={setTheme} />

@@ -7,7 +7,7 @@ export type ThemeProps = {
     setTheme: Dispatch<SetStateAction<"light" | "dark">>;
 }
 
-export const Theme = ({ setTheme } : ThemeProps) => {
+export const Theme = ({ setTheme }: ThemeProps) => {
 
     const [darkMode, setdarkMode] = useState<boolean>(true);
 
@@ -31,7 +31,7 @@ export const Theme = ({ setTheme } : ThemeProps) => {
 
     return (
         <div
-            className="rounded-full p-[6px] hover:bg-[#ebedf0] dark:hover:bg-[#444950] hover:scale"
+            className="rounded-full p-[6px] hover:bg-lightHover dark:hover:bg-darkHover hover:scale"
             onClick={ToggleMode}
         >
             <Icon

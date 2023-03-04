@@ -41,16 +41,19 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 0;
+  transition: all 0.3s;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--bgColor);
+  transition: all 0.3s;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--colorInverse);
   border-radius: 20px;
+  transition: all 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -14,14 +14,14 @@ export const Screen = ({ Component, pageProps }: any) => {
 
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
-    const open = useSelector((state : RootState) => state.isContextMenuOpen);
+    const open = useSelector((state: RootState) => state.isContextMenuOpen);
 
     return (
         <section className={theme === 'dark' ? 'dark' : ''}>
-            <Header setTheme={setTheme}/>
+            <Header setTheme={setTheme} />
             <ToggleBar />
-            <motion.section 
-                className='bg-grayMain pt-[8vh] z-10 min-h-[100vh] h-[100vh] dark:bg-blackMain'
+            <motion.section
+                className='pt-16 z-10 min-h-[100vh] h-full transition-colors duration-300 bg-grayMain dark:bg-darkMain'
                 initial={{
                     paddingLeft: '240px'
                 }}
@@ -30,7 +30,7 @@ export const Screen = ({ Component, pageProps }: any) => {
                 }}
                 transition={{
                     duration: DURATION_ANIMATION,
-                    type: ANIMATION_TYPE 
+                    type: ANIMATION_TYPE
                 }}
             >
                 <Component {...pageProps} />
