@@ -1,24 +1,30 @@
 import { motion } from 'framer-motion';
 
+import clsx from 'clsx';
+
 import { useDispatch, useSelector } from 'react-redux';
+
+import { BiAtom, BiMenu, BiX } from 'react-icons/bi';
+import { TbMathFunction } from 'react-icons/tb';
+import { HiCode } from 'react-icons/hi';
+import { FcElectricity } from 'react-icons/fc';
+
+import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
+
+import { useIsMedium } from '@/Hooks/UseMediaQuery';
 
 import { RootState, open as Open, close } from '../../stores/MenuStore';
 
 import { ExpandCard } from './ContainerExpand/ExpandCard';
-
-import { TbMathFunction } from 'react-icons/tb';
-import { BiAtom, BiMenu, BiX } from 'react-icons/bi';
-import { HiCode } from 'react-icons/hi';
-import { FcElectricity } from 'react-icons/fc';
-
 import { Icon } from '../Icon/Icon';
-import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
-import clsx from 'clsx';
+
 
 export const ToggleBar = () => {
 
     const open = useSelector((state: RootState) => state.isContextMenuOpen);
     const dispatch = useDispatch();
+
+    const IsMedium = useIsMedium()
 
     const HandleToogleMenu = () => {
         open ? dispatch(close()) : dispatch(Open());
@@ -32,7 +38,7 @@ export const ToggleBar = () => {
                 'md:border-r-secondary md:p-0 md:-mt-[1px] md:h-[calc(100vh_-_64px)]'
             )}
                 animate={{
-                    translateX: open ? '0' : '-240px',
+                    translateX: open ? '0' : !IsMedium ? '0' : '-240px',
                 }}
                 transition={{
                     duration: DURATION_ANIMATION,
