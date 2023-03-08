@@ -32,11 +32,12 @@ export const ToggleBar = () => {
 
     return (
         <>
-            <motion.div className={clsx(
-                'p-4 bg-grayMain dark:bg-darkMain transition-colors duration-300',
-                'md:fixed md:overflow-y-scroll md:m-0 md:w-60 md:z-20 md:border-r-[1px]',
-                'md:border-r-secondary md:p-0 md:-mt-[1px] md:h-[calc(100vh_-_64px)]'
-            )}
+            <motion.div 
+                className={clsx(
+                    'p-4 bg-grayMain dark:bg-darkMain transition-colors duration-300',
+                    'md:fixed md:overflow-y-scroll md:m-0 md:w-60 md:z-20 md:border-r-[1px]',
+                    'md:border-r-secondary md:p-0 md:-mt-[1px] md:h-[calc(100vh_-_64px)]'
+                )}
                 animate={{
                     translateX: open ? '0' : !IsMedium ? '0' : '-240px',
                 }}
