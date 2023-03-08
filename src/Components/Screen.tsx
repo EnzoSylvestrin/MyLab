@@ -9,6 +9,7 @@ import { Header } from '@/Components/Header/Header';
 import { ToggleBar } from '@/Components/ToggleBar/ToggleBar';
 
 import { ANIMATION_TYPE, DURATION_ANIMATION } from "@/Utils/Contants";
+import clsx from "clsx";
 
 export const Screen = ({ Component, pageProps }: any) => {
 
@@ -20,11 +21,11 @@ export const Screen = ({ Component, pageProps }: any) => {
         <section className={theme === 'dark' ? 'dark' : ''}>
             <Header setTheme={setTheme} />
             <ToggleBar />
-            <motion.section
-                className='pt-16 z-10 min-h-[100vh] h-full transition-colors duration-300 bg-grayMain dark:bg-darkMain'
-                initial={{
-                    paddingLeft: '240px'
-                }}
+            <motion.main
+                className={clsx(
+                    'pl-0 pt-2 z-10 min-h-[100vh] h-full transition-colors duration-300',
+                    'bg-grayMain dark:bg-darkMain md:pt-16 md:pl-60'
+                )}
                 animate={{
                     paddingLeft: open ? '240px' : '0'
                 }}
@@ -34,7 +35,7 @@ export const Screen = ({ Component, pageProps }: any) => {
                 }}
             >
                 <Component {...pageProps} />
-            </motion.section>
+            </motion.main>
         </section>
     );
 }

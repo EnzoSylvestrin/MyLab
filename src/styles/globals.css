@@ -16,7 +16,6 @@
 html,
 body {
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 a {
@@ -41,7 +40,7 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+  width: 7px;
   transition: all 0.3s;
 }
 

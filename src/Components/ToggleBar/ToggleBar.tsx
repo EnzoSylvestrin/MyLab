@@ -13,6 +13,7 @@ import { FcElectricity } from 'react-icons/fc';
 
 import { Icon } from '../Icon/Icon';
 import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
+import clsx from 'clsx';
 
 export const ToggleBar = () => {
 
@@ -25,8 +26,11 @@ export const ToggleBar = () => {
 
     return (
         <>
-            <motion.div
-                className="flex flex-col gap-5 w-60 h-[calc(100vh_-_64px)] fixed p-4 mt-[63px] z-10  overflow-y-scroll border-r-[1px] border-r-secondary transition-colors duration-300 shadow-lg bg-grayMain dark:bg-darkMain"
+            <motion.div className={clsx(
+                'p-4 bg-grayMain dark:bg-darkMain transition-colors duration-300',
+                'md:fixed md:overflow-y-scroll md:m-0 md:w-60 md:z-20 md:border-r-[1px]',
+                'md:border-r-secondary md:p-0 md:-mt-[1px] md:h-[calc(100vh_-_64px)]'
+            )}
                 animate={{
                     translateX: open ? '0' : '-240px',
                 }}
@@ -35,33 +39,43 @@ export const ToggleBar = () => {
                     type: ANIMATION_TYPE,
                 }}
             >
-                <ExpandCard
-                    title={{ text: 'Física', Icon: BiAtom }}
-                    subTitles={[
-                        { text: 'Elétrica', link: 'eletrica', Icon: FcElectricity },
-                        { text: 'Óptica', link: 'optica' }
-                    ]}
-                />
-                <ExpandCard
-                    title={{ text: 'Matemática', Icon: TbMathFunction }}
-                    subTitles={[
-                        { text: 'Reais', link: 'reais' },
-                        { text: 'Imaginários', link: 'imaginarios' },
-                        { text: 'Trigonometria', link: 'trigonometria' },
-                        { text: 'Matrizes', link: 'matrizes' }
-                    ]}
-                />
-                <ExpandCard
-                    title={{ text: 'Programação', Icon: HiCode }}
-                    subTitles={[
-                        { text: 'JavaScript', link: 'javascript' },
-                        { text: 'C#', link: 'csharp' },
-                        { text: 'Python', link: 'python' }
-                    ]}
-                />
+                <div
+                    className={clsx(
+                        "flex flex-col gap-5 w-full p-4 shadow-lg md:h-full",
+                    )}
+                >
+                    <ExpandCard
+                        title={{ text: 'Física', Icon: BiAtom }}
+                        subTitles={[
+                            { text: 'Elétrica', link: 'eletrica', Icon: FcElectricity },
+                            { text: 'Óptica', link: 'optica' }
+                        ]}
+                    />
+                    <ExpandCard
+                        title={{ text: 'Matemática', Icon: TbMathFunction }}
+                        subTitles={[
+                            { text: 'Reais', link: 'reais' },
+                            { text: 'Imaginários', link: 'imaginarios' },
+                            { text: 'Trigonometria', link: 'trigonometria' },
+                            { text: 'Matrizes', link: 'matrizes' }
+                        ]}
+                    />
+                    <ExpandCard
+                        title={{ text: 'Programação', Icon: HiCode }}
+                        subTitles={[
+                            { text: 'JavaScript', link: 'javascript' },
+                            { text: 'C#', link: 'csharp' },
+                            { text: 'Python', link: 'python' }
+                        ]}
+                    />
+                </div>
             </motion.div>
             <motion.div
-                className='fixed flex items-center justify-center rounded-full z-[999] top-[70px] p-1 bg-cyan-200 cursor-pointer dark:bg-secondary '
+                className={clsx(
+                    'hidden fixed items-center justify-center rounded-full z-[999] top-[70px]',
+                    'p-1 bg-cyan-200 cursor-pointer dark:bg-secondary',
+                    'md:flex'
+                )}
                 onClick={HandleToogleMenu}
                 initial={{
                     left: '248px'
