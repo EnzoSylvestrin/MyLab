@@ -24,7 +24,7 @@ export const ToggleBar = () => {
     const open = useSelector((state: RootState) => state.isContextMenuOpen);
     const dispatch = useDispatch();
 
-    const IsMedium = useIsMedium()
+    const IsMedium = useIsMedium();
 
     const HandleToogleMenu = () => {
         open ? dispatch(close()) : dispatch(Open());
@@ -42,7 +42,7 @@ export const ToggleBar = () => {
                     translateX: open ? '0' : !IsMedium ? '0' : '-240px',
                 }}
                 transition={{
-                    duration: DURATION_ANIMATION,
+                    duration: !IsMedium ? 0 : DURATION_ANIMATION,
                     type: ANIMATION_TYPE,
                 }}
             >

@@ -11,6 +11,7 @@ import { Text } from '@/Components/Text/Text';
 import { Icon } from '@/Components/Icon/Icon';
 
 import Link from 'next/link';
+import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
 
 type CardItem = {
     link: string,
@@ -40,11 +41,11 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
             <Collapsible.Trigger asChild>
                 <div className='cursor-pointer flex items-center justify-between'>
                     <TitleContainer item={title} />
-                    <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-darkMain shadow-md data-[state=closed]:bg-grayMain transition-colors duration-150 dark:data-[state=closed]:bg-darkMain dark:text-grayMain">
+                    <button className="h-[25px] w-[25px] inline-flex items-center justify-center text-darkMain transition-colors duration-150 dark:text-grayMain">
                         <motion.div
                             initial={{ rotate: 0 }}
                             animate={{ rotate: open ? 90 : 0 }}
-                            transition={{ duration: 0.6, type: "spring" }}
+                            transition={{ duration: DURATION_ANIMATION, type: ANIMATION_TYPE }}
                         >
                             <RxCaretRight
                                 size={IconSize}
@@ -58,12 +59,12 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                 className='overflow-hidden'
                 initial={{ height: 0 }}
                 animate={{ height: open ? 'auto' : 0 }}
-                transition={{ duration: 0.6, type: "spring", }}
+                transition={{ duration: DURATION_ANIMATION, type: ANIMATION_TYPE, }}
             >
-                <div className='flex flex-col items-center pl-1 border-l-[1px] border-l-secondary mt-2'>
+                <div className='flex flex-col items-center border-l border-slate-800 dark:border-slate-600 mt-2'>
                     {subTitles.map((subTitle) => {
                         return (
-                            <div className='w-full p-1 hover:bg-lightHover dark:hover:bg-darkHover' key={subTitle.link}>
+                            <div className='w-full p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover' key={subTitle.link}>
                                 <TitleContainer item={subTitle} />
                             </div>
                         );

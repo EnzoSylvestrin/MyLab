@@ -11,10 +11,13 @@ import { RootState } from "@/stores/MenuStore";
 
 import { Header } from '@/Components/Header/Header';
 import { ToggleBar } from '@/Components/ToggleBar/ToggleBar';
+import { useIsMedium } from "@/Hooks/UseMediaQuery";
 
 export const Screen = ({ Component, pageProps }: any) => {
 
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+    const IsMedium = useIsMedium();
 
     const open = useSelector((state: RootState) => state.isContextMenuOpen);
 
@@ -31,7 +34,7 @@ export const Screen = ({ Component, pageProps }: any) => {
                     'bg-grayMain dark:bg-darkMain md:pt-16 md:pl-60'
                 )}
                 animate={{
-                    paddingLeft: open ? '240px' : '0'
+                    paddingLeft: open ? !IsMedium ? 0 : '240px' : 0
                 }}
                 transition={{
                     duration: DURATION_ANIMATION,
