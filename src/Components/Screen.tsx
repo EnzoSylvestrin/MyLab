@@ -19,7 +19,10 @@ export const Screen = ({ Component, pageProps }: any) => {
     const open = useSelector((state: RootState) => state.isContextMenuOpen);
 
     return (
-        <section className={`${theme === 'dark' ? 'dark' : ''} selection:text-secondary`}>
+        <section className={clsx(
+            `${theme === 'dark' ? 'dark' : ''}`, 
+            'selection:text-secondary',
+        )}>
             <Header setTheme={setTheme} />
             <ToggleBar />
             <motion.main
