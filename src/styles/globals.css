@@ -35,10 +35,6 @@ a {
   background-color: #f5f5f5;
 }
 
-::selection {
-  color: #8100eb;
-}
-
 ::-webkit-scrollbar {
   width: 7px;
   transition: all 0.3s;

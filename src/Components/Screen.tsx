@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
+import clsx from "clsx";
+
 import { motion } from "framer-motion";
+
+import { ANIMATION_TYPE, DURATION_ANIMATION } from "@/Utils/Contants";
 
 import { RootState } from "@/stores/MenuStore";
 
 import { Header } from '@/Components/Header/Header';
 import { ToggleBar } from '@/Components/ToggleBar/ToggleBar';
-
-import { ANIMATION_TYPE, DURATION_ANIMATION } from "@/Utils/Contants";
-import clsx from "clsx";
 
 export const Screen = ({ Component, pageProps }: any) => {
 
@@ -18,7 +19,7 @@ export const Screen = ({ Component, pageProps }: any) => {
     const open = useSelector((state: RootState) => state.isContextMenuOpen);
 
     return (
-        <section className={theme === 'dark' ? 'dark' : ''}>
+        <section className={`${theme === 'dark' ? 'dark' : ''} selection:text-secondary`}>
             <Header setTheme={setTheme} />
             <ToggleBar />
             <motion.main
