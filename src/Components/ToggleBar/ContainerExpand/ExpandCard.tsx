@@ -49,7 +49,6 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                         >
                             <RxCaretRight
                                 size={IconSize}
-
                             />
                         </motion.div>
                     </button>
@@ -61,10 +60,10 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                 animate={{ height: open ? 'auto' : 0 }}
                 transition={{ duration: DURATION_ANIMATION, type: ANIMATION_TYPE, }}
             >
-                <div className='flex flex-col items-center border-l border-slate-800 dark:border-slate-600 mt-2'>
+                <div className='flex flex-col items-center border-l border-slate-200 dark:border-slate-600 mt-2'>
                     {subTitles.map((subTitle) => {
                         return (
-                            <div className='w-full p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover' key={subTitle.link}>
+                            <div className='w-full p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover first:mt-0' key={subTitle.link}>
                                 <TitleContainer item={subTitle} />
                             </div>
                         );
