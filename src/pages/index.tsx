@@ -7,7 +7,7 @@ const Home = () => {
         seja bem vindo
       </Heading>
     </div>
-  )
+  );
 }
 
 export default Home;

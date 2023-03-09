@@ -45,6 +45,7 @@ export const ToggleBar = () => {
                     duration: !IsMedium ? 0 : DURATION_ANIMATION,
                     type: ANIMATION_TYPE,
                 }}
+                data-testid={'menubar'}
             >
                 <div
                     className={clsx(
@@ -94,6 +95,7 @@ export const ToggleBar = () => {
                     duration: DURATION_ANIMATION,
                     type: ANIMATION_TYPE,
                 }}
+                data-testid="closeButton"
             >
                 <Icon icon={open ? BiX : BiMenu} size={20} />
             </motion.div>

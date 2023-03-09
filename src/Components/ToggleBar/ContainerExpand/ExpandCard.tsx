@@ -39,7 +39,10 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
     return (
         <Collapsible.Root className='w-full' open={open} onOpenChange={setOpen}>
             <Collapsible.Trigger asChild>
-                <div className='cursor-pointer flex items-center justify-between'>
+                <div 
+                    className='cursor-pointer flex items-center justify-between'
+                    data-testid='collapsiable'
+                >
                     <TitleContainer item={title} />
                     <button className="h-[25px] w-[25px] inline-flex items-center justify-center text-darkMain transition-colors duration-150 dark:text-grayMain">
                         <motion.div
@@ -59,6 +62,7 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                 initial={{ height: 0 }}
                 animate={{ height: open ? 'auto' : 0 }}
                 transition={{ duration: DURATION_ANIMATION, type: ANIMATION_TYPE, }}
+                data-testid="menuItens"
             >
                 <div className='flex flex-col items-center border-l border-slate-200 dark:border-slate-600 mt-2'>
                     {subTitles.map((subTitle) => {
