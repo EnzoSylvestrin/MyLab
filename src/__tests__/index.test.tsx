@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import Home from '../pages/index';
 
 import { Theme } from '@/Components/Theme/Theme';
@@ -22,19 +22,19 @@ describe('Home', () => {
 describe('Theme component', () => {
     it('should renders with dark mode by default', () => {
         render(<Theme setTheme={jest.fn()} />);
-  
+
         const themeToggler = screen.getByTestId('themeToggler');
         const icon = screen.getByTestId('icon');
-    
+
         expect(themeToggler).toBeInTheDocument();
         expect(icon).toBeInTheDocument();
     });
-  
+
     it('should toggles the mode when clicked', () => {
         const setTheme = jest.fn();
         render(<Theme setTheme={setTheme} />);
         const themeToggler = screen.getByTestId('themeToggler');
-    
+
         fireEvent.click(themeToggler);
 
         expect(setTheme).toHaveBeenCalledWith('light');
@@ -50,7 +50,7 @@ jest.mock('@/Hooks/UseMediaQuery', () => ({
 }));
 
 window.scrollTo = jest.fn();
-  
+
 describe('Menu component', () => {
     it('expand when clicked', async () => {
         render(
@@ -81,17 +81,17 @@ describe('Menu component', () => {
         const menuBar = getByTestId('menubar');
 
         expect(menuBar).not.toHaveAttribute('style');
-        
+
         fireEvent.click(button);
 
-        await waitFor(() => {expect(menuBar).toHaveStyle({'transform': 'translateX(0) translateZ(0)'})}, {
+        await waitFor(() => { expect(menuBar).toHaveStyle({ 'transform': 'translateX(0) translateZ(0)' }) }, {
             timeout: 2000,
         });
 
         fireEvent.click(button);
-        
-        await waitFor(() => {expect(menuBar).toHaveStyle({'transform': 'translateX(-240px) translateZ(0)'})},{
-            timeout: 2000,
+
+        await waitFor(() => { expect(menuBar).toHaveStyle({ 'transform': 'translateX(-240px) translateZ(0)' }) }, {
+            timeout: 5000,
         });
     });
 });

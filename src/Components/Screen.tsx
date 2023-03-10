@@ -23,7 +23,7 @@ export const Screen = ({ Component, pageProps }: any) => {
 
     return (
         <section className={clsx(
-            `${theme === 'dark' ? 'dark' : ''}`, 
+            `${theme === 'dark' ? 'dark' : ''}`,
             'selection:text-secondary',
         )}>
             <Header setTheme={setTheme} />
