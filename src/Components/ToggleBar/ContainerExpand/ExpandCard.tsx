@@ -39,7 +39,7 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
     return (
         <Collapsible.Root className='w-full' open={open} onOpenChange={setOpen}>
             <Collapsible.Trigger asChild>
-                <div 
+                <div
                     className='cursor-pointer flex items-center justify-between'
                     data-testid='collapsiable'
                 >
@@ -67,9 +67,15 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                 <div className='flex flex-col items-center border-l border-slate-200 dark:border-slate-600 mt-2'>
                     {subTitles.map((subTitle) => {
                         return (
-                            <div className='w-full p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover first:mt-0' key={subTitle.link}>
-                                <TitleContainer item={subTitle} />
-                            </div>
+                            subTitle.link != null
+                                ?
+                                <Link href={subTitle.link} className="w-full h-full flex-1 p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover first:mt-0">
+                                    <TitleContainer item={subTitle} />
+                                </Link>
+                                :
+                                <div className='w-full p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover first:mt-0' key={subTitle.link}>
+                                    <TitleContainer item={subTitle} />
+                                </div>
                         );
                     })}
                 </div>
@@ -97,20 +103,18 @@ const TitleContainer = ({ item }: { item: CardItem | CardTitle }) => {
                         </Text>
                     </div>
                     :
-                    <Link href={item.link}>
-                        <div className='flex gap-1 items-center'>
-                            {
-                                item.Icon != null
-                                    ?
-                                    <Icon icon={item.Icon} size={20} colored />
-                                    :
-                                    ''
-                            }
-                            <Text size={'sm'}>
-                                {item.text}
-                            </Text>
-                        </div>
-                    </Link>
+                    <div className='flex gap-1 items-center'>
+                        {
+                            item.Icon != null
+                                ?
+                                <Icon icon={item.Icon} size={20} colored />
+                                :
+                                ''
+                        }
+                        <Text size={'sm'}>
+                            {item.text}
+                        </Text>
+                    </div>
             }
         </>
     );

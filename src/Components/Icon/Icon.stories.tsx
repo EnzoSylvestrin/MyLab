@@ -24,6 +24,12 @@ export const Colored: Story = {
   }
 };
 
+export const WithoutDarkMode: Story = {
+  args: {
+    useDarkMode: false
+  }
+};
+
 export const CustomSize: Story = {
   args: {
     size: 32,

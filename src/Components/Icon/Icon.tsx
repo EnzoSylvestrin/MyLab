@@ -5,17 +5,20 @@ type IconProps = {
     icon: IconType,
     size?: string | number,
     colored?: boolean,
-    className?: string
+    className?: string,
+    useDarkMode?: boolean,
 }
 
-export const Icon = ({icon: IconComponent, size = 28, colored, className} : IconProps) => {
+export const Icon = ({ icon: IconComponent, size = 28, colored, className, useDarkMode }: IconProps) => {
     return (
-        <IconComponent 
+        <IconComponent
             className={clsx(
-                colored ? 'text-secondary fill-secondary' : 'text-darkColor fill-darkColor dark:text-lightColor dark:fill-lightColor',
+                colored
+                    ? 'text-secondary fill-secondary'
+                    : `text-darkColor fill-darkColor ${useDarkMode ? 'dark:text-lightColor dark:fill-lightColor' : ''}`,
                 className
             )}
-            size={size} 
+            size={size}
         />
     );
 }

@@ -32,7 +32,7 @@ export const ToggleBar = () => {
 
     return (
         <>
-            <motion.div 
+            <motion.div
                 className={clsx(
                     'p-4 bg-grayMain dark:bg-darkMain transition-colors duration-300',
                     'md:fixed md:overflow-y-scroll md:m-0 md:w-60 md:z-20 md:border-r-[1px]',
@@ -97,7 +97,7 @@ export const ToggleBar = () => {
                 }}
                 data-testid="closeButton"
             >
-                <Icon icon={open ? BiX : BiMenu} size={20} />
+                <Icon icon={open ? BiX : BiMenu} size={20} useDarkMode={false} />
             </motion.div>
         </>
     );
