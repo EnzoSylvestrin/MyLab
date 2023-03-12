@@ -30,8 +30,8 @@ export const Screen = ({ Component, pageProps }: any) => {
             <ToggleBar />
             <motion.main
                 className={clsx(
-                    'pl-0 pt-2 z-10 min-h-[100vh] h-full transition-colors duration-300',
-                    'bg-grayMain dark:bg-darkMain md:pt-16 md:pl-60'
+                    'pl-0 pt-2 z-10 min-h-[92vh] h-full transition-colors duration-300',
+                    'bg-grayMain dark:bg-darkMain md:pl-60'
                 )}
                 animate={{
                     paddingLeft: open ? !IsMedium ? 0 : '240px' : 0
