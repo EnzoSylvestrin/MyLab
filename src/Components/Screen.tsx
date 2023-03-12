@@ -30,7 +30,7 @@ export const Screen = ({ Component, pageProps }: any) => {
             <ToggleBar />
             <motion.main
                 className={clsx(
-                    'pl-0 pt-2 z-10 min-h-[92vh] h-full transition-colors duration-300',
+                    'pl-0 pt-2 z-10 h-[calc(100vh_-_64px)] transition-colors duration-300',
                     'bg-grayMain dark:bg-darkMain md:pl-60'
                 )}
                 animate={{

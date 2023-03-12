@@ -69,7 +69,7 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                         return (
                             subTitle.link != null
                                 ?
-                                <Link href={subTitle.link} className="w-full h-full flex-1 p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover first:mt-0">
+                                <Link href={subTitle.link} className="w-full h-full flex-1 p-1 -ml-[2px] border-transparent hover:border-current hover:bg-lightHover pl-2 border-l mt-1 hover:border-l-secondary dark:hover:bg-darkHover first:mt-0" key={subTitle.link}>
                                     <TitleContainer item={subTitle} />
                                 </Link>
                                 :
