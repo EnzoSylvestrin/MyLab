@@ -1,28 +1,51 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const counterSlice = createSlice({
+// Define the menu slice
+const menuSlice = createSlice({
   name: 'MenuState',
   initialState: {
     isContextMenuOpen: true,
   },
   reducers: {
-    open: state => {
+    openMenu: state => {
       state.isContextMenuOpen = true
     },
-    close: state => {
+    closeMenu: state => {
       state.isContextMenuOpen = false
     }
   }
 });
 
-export const { open, close } = counterSlice.actions;
-
-const store = configureStore({
-  reducer: counterSlice.reducer
+// Define the user slice
+const SectionMenu = createSlice({
+  name: 'SectionMenu',
+  initialState: {
+    isSectionMenuOpen: true,
+  },
+  reducers: {
+    openSectionMenu: state => {
+      state.isSectionMenuOpen = true
+    },
+    closeSectionMenu: state => {
+      state.isSectionMenuOpen = false
+    }
+  }
 });
 
+// Combine the slices into a single reducer
+const rootReducer = {
+  menu: menuSlice.reducer,
+  user: SectionMenu.reducer,
+};
+
+// Create the store with the combined reducer
+const store = configureStore({
+  reducer: rootReducer,
+});
+
+// Export the slices' actions and types
+export const { openMenu, closeMenu } = menuSlice.actions;
+export const { openSectionMenu, closeSectionMenu, } = SectionMenu.actions;
 export type RootState = ReturnType<typeof store.getState>;
-
 export type AppDispatch = typeof store.dispatch;
-
 export default store;

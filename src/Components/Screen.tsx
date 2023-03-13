@@ -19,7 +19,7 @@ export const Screen = ({ Component, pageProps }: any) => {
 
     const IsMedium = useIsMedium();
 
-    const open = useSelector((state: RootState) => state.isContextMenuOpen);
+    const open = useSelector((state: RootState) => state.menu.isContextMenuOpen);
 
     return (
         <section className={clsx(

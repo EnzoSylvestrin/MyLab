@@ -13,7 +13,7 @@ import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
 
 import { useIsMedium } from '@/Hooks/UseMediaQuery';
 
-import { RootState, open as Open, close } from '../../stores/MenuStore';
+import { RootState, openMenu as Open, closeMenu } from '../../stores/MenuStore';
 
 import { ExpandCard } from './ContainerExpand/ExpandCard';
 import { Icon } from '../Icon/Icon';
@@ -21,13 +21,13 @@ import { Icon } from '../Icon/Icon';
 
 export const ToggleBar = () => {
 
-    const open = useSelector((state: RootState) => state.isContextMenuOpen);
+    const open = useSelector((state: RootState) => state.menu.isContextMenuOpen);
     const dispatch = useDispatch();
 
     const IsMedium = useIsMedium();
 
     const HandleToogleMenu = () => {
-        open ? dispatch(close()) : dispatch(Open());
+        open ? dispatch(closeMenu()) : dispatch(Open());
     }
 
     return (
