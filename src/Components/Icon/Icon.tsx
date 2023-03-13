@@ -9,7 +9,7 @@ type IconProps = {
     useDarkMode?: boolean,
 }
 
-export const Icon = ({ icon: IconComponent, size = 28, colored, className, useDarkMode }: IconProps) => {
+export const Icon = ({ icon: IconComponent, size = 28, colored, className, useDarkMode = true }: IconProps) => {
     return (
         <IconComponent
             className={clsx(

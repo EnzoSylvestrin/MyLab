@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { GrTest } from 'react-icons/gr';
+import { GrMail } from 'react-icons/gr';
 
 import { Icon } from './Icon';
 
@@ -9,7 +9,7 @@ const meta: Meta<typeof Icon> = {
   component: Icon,
   tags: ['autodocs'],
   args: {
-    icon: GrTest
+    icon: GrMail
   }
 };
 

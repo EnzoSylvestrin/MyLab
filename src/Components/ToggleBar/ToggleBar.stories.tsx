@@ -1,4 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
+
+import { Provider } from 'react-redux';
+import store from '@/stores/MenuStore';
 
 import { ToggleBar } from './ToggleBar';
 
@@ -9,6 +12,12 @@ const meta: Meta<typeof ToggleBar> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ToggleBar>;
 
-export const Default: Story = {};
+export const Default = () => {
+
+  return (
+    <Provider store={store}>
+      <ToggleBar />
+    </Provider>
+);
+}
