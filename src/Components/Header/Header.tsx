@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+
 import { Button } from '../Button/Button';
 import { Link } from '../Link/Link';
 import { Theme, ThemeProps } from '../Theme/Theme';
@@ -18,11 +18,12 @@ type HeaderProps = ThemeProps & {
 export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: HeaderProps) => {
   return (
     <header className="sticky top-0 z-[10]">
-      <nav className={clsx(
-        'w-full flex-col h-auto border-b-[1px] shadow-lg border-b-secondary py-3 px-4 flex items-center',
-        'justify-between transition-colors duration-300 bg-grayMain dark:bg-darkMain',
-        'xs:flex-row xs:h-16'
-      )}
+      <nav 
+        className={clsx(
+          'w-full flex-col h-auto border-b-[1px] shadow-lg border-b-secondary py-3 px-4 flex items-center',
+          'justify-between transition-colors duration-300 bg-grayMain dark:bg-darkMain',
+          'xs:flex-row xs:h-16'
+        )}
       >
         <Link href='#' size='md' text='MyLab' underlineOnHover={false} title />
         <div className='flex items-center justify-center'>
