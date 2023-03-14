@@ -21,10 +21,9 @@ const ExpandSection = () => {
     return (
         <>
             <motion.div 
-                className="flex flex-col self-end mr-4 ring-2 rounded-2xl ring-secondary relative"
+                className="flex flex-col self-end mr-4 ring-2 h-auto rounded-2xl ring-secondary relative"
                 animate={{
                     width: open ? '300px' : '35px',
-                    height: 'auto',
                     padding: open ? '12px 8px' : '2px',
                 }}
                 transition={{

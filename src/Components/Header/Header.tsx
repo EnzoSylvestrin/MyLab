@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { Link } from '../Link/Link';
 import { Theme, ThemeProps } from '../Theme/Theme';
@@ -29,7 +30,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, setTheme }: H
           <div className='w-[2px] h-6 bg-gray-400 mx-3' />
           <ul className='list-none flex items-center gap-4'>
             <li><Link href="#" text='Login' colored={false} /></li>
-            <li><Button text='SignUp' /></li>
+            <li><Button text='SignUp'/></li>
           </ul>
         </div>
       </nav>

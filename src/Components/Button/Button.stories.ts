@@ -39,6 +39,14 @@ export const Full: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    size: 'md',
+    text: 'Button',
+    loading: true
+  },
+};
+
 export const Link: Story = {
   args: {
     size: 'md',
