@@ -81,7 +81,7 @@ export const ToggleBar = () => {
             <motion.div
                 className={clsx(
                     'hidden fixed items-center justify-center rounded-full z-[999] top-[70px]',
-                    'p-1 bg-cyan-200 cursor-pointer dark:bg-secondary',
+                    'p-1 bg-purple-500 cursor-pointer dark:bg-secondary',
                     'md:flex'
                 )}
                 onClick={HandleToogleMenu}

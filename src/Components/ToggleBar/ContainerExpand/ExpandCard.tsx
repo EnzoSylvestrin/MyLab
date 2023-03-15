@@ -64,7 +64,7 @@ export const ExpandCard = ({ title, subTitles }: ExpandCardProps) => {
                 transition={{ duration: DURATION_ANIMATION, type: ANIMATION_TYPE, }}
                 data-testid="menuItens"
             >
-                <div className='flex flex-col items-center border-l border-slate-200 dark:border-slate-600 mt-2'>
+                <div className='flex flex-col items-center border-l border-slate-300 dark:border-slate-600 mt-2'>
                     {subTitles.map((subTitle) => {
                         return (
                             subTitle.link != null
