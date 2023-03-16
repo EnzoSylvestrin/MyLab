@@ -15,21 +15,30 @@ export const Formula = ({ formula } : FormulaProps) => {
         let resultElement = [];
 
         for (let i = 0; i < formula.length; i++) {
-            if (formula[i + 1] == '/') {
+            let distance = 0;
+            for (let j = i; j < formula.length; j++) {
+                if (Operators.includes(formula[j])) {
+                    distance = Math.abs(i - j);
+                    break;
+                }
+            }
+            if (formula[i + distance] == '/') {
                 resultElement.push(
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        {makeElement(formula[i], false)}
+                        {makeElement(formula.substring(i, i + distance), false, i)}
                         <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
-                        {makeElement(formula[i + 2], false)}    
+                        {makeElement(formula[i + distance + 1], false, i + distance + 1)}  
                     </div>
                 )
+                i += 1 + distance;
             }
             else {
-                if (Operators.includes(formula)) {
-                    resultElement.push(makeElement(formula[i], true))
+                if (Operators.includes(formula[i])) {
+                    resultElement.push(makeElement(formula[i], true, i))
                 }
                 else {
-                    resultElement.push(makeElement(formula[i], false))
+                    resultElement.push(makeElement(formula.substring(i, i + distance), false, i))
+                    distance > 1 ? i += distance - 1 : '';
                 }
             }
         }
@@ -37,19 +46,27 @@ export const Formula = ({ formula } : FormulaProps) => {
         return resultElement;
     }
 
-    const makeElement = (text: string, operator: boolean) => {
+    const makeElement = (text: string, operator: boolean, id: number) => {
         if (operator) {
-            return <Heading size="sm">{text}</Heading>
+            return <>{WriteElement(text)}</>
         }
         else {
-            return <>
-                <Heading size="sm">{text}</Heading>
-                <Input.Root>
-                    <Input.Input type={'text'} />
-                </Input.Root>
-            </>
+            return (
+                <div className="flex items-center gap-2 justify-center" key={id}>
+                    {WriteElement(text)}
+                    <Input.Root>
+                        <Input.Input type={'text'} />
+                    </Input.Root>
+                </div>
+            )
         }
-    } 
+    }
+
+    const WriteElement = (text: string) => {
+        return text.length == 1 
+        ? <Heading size="sm">{text}</Heading> 
+        : <Heading size="sm">{text[0]}<sub>{text.substring(1)}</sub></Heading>
+    }
 
     const resultFormula = MakeFormula(formula);
 
