@@ -15,22 +15,18 @@ export const Formula = ({ formula } : FormulaProps) => {
         let resultElement = [];
 
         for (let i = 0; i < formula.length; i++) {
-            let distance = 0;
-            for (let j = i; j < formula.length; j++) {
-                if (Operators.includes(formula[j])) {
-                    distance = Math.abs(i - j);
-                    break;
-                }
-            }
+            let distance = getDistanceToOperator(formula, i);
+            
             if (formula[i + distance] == '/') {
+                let distance2 = getDistanceToOperator(formula, i + distance);
                 resultElement.push(
                     <div className="flex flex-col gap-2 justify-center items-center">
                         {makeElement(formula.substring(i, i + distance), false, i)}
                         <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
-                        {makeElement(formula[i + distance + 1], false, i + distance + 1)}  
+                        {makeElement(formula.substring(i + distance + 1, i + distance + distance2), false, i + distance)}  
                     </div>
                 )
-                i += 1 + distance;
+                i += 1 + distance + distance2;
             }
             else {
                 if (Operators.includes(formula[i])) {
@@ -44,6 +40,18 @@ export const Formula = ({ formula } : FormulaProps) => {
         }
 
         return resultElement;
+    }
+
+    const getDistanceToOperator = (formula: string, init: number) : number => {
+        let distance = 0;
+        for (let j = init; j < formula.length; j++) {
+            if (Operators.includes(formula[j])) {
+                distance = Math.abs(init - j);
+                break;
+            }
+        }
+        if (distance == 0) distance = formula.length - init;
+        return distance;
     }
 
     const makeElement = (text: string, operator: boolean, id: number) => {
