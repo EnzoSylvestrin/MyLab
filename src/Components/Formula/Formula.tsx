@@ -68,11 +68,9 @@ export const Formula = ({ formula } : FormulaProps) => {
         : <Heading size="sm">{text[0]}<sub>{text.substring(1)}</sub></Heading>
     }
 
-    const resultFormula = MakeFormula(formula);
-
     return (
         <div className="flex items-center justify-center gap-3 mt-4">
-            {resultFormula}
+            {MakeFormula(formula)}
         </div>
     )
 }
