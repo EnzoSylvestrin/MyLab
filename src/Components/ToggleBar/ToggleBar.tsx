@@ -97,7 +97,7 @@ export const ToggleBar = () => {
                 }}
                 data-testid="closeButton"
             >
-                <Icon icon={open ? BiX : BiMenu} size={20} useDarkMode={false} />
+                <Icon icon={open ? BiX : BiMenu} size={20} className="!fill-gray-50" useDarkMode={false} />
             </motion.div>
         </>
     );

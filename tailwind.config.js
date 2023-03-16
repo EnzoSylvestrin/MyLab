@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         main: '#2AB7CA',
-        secondary: '#7709f5',
+        secondary: '#ae71f5',
         red: '#FE4A49',
         grayMain: '#ececec',
         darkMain: '#333333',
@@ -25,6 +25,7 @@ module.exports = {
       },
     },
     fontSize: {
+      xs: 14,
       sm: 16,
       md: 18,
       lg: 20,
