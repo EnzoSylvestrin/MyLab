@@ -18,15 +18,15 @@ export const Formula = ({ formula } : FormulaProps) => {
             let distance = getDistanceToOperator(formula, i);
             
             if (formula[i + distance] == '/') {
-                let distance2 = getDistanceToOperator(formula, i + distance);
+                let distance2 = getDistanceToOperator(formula, i + distance + 1);
                 resultElement.push(
                     <div className="flex flex-col gap-2 justify-center items-center">
                         {makeElement(formula.substring(i, i + distance), false, i)}
                         <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
-                        {makeElement(formula.substring(i + distance + 1, i + distance + distance2), false, i + distance)}  
+                        {makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)}  
                     </div>
                 )
-                i += 1 + distance + distance2;
+                i += distance + distance2;
             }
             else {
                 if (Operators.includes(formula[i])) {
@@ -46,7 +46,7 @@ export const Formula = ({ formula } : FormulaProps) => {
         let distance = 0;
         for (let j = init; j < formula.length; j++) {
             if (Operators.includes(formula[j])) {
-                distance = Math.abs(init - j);
+                distance = Math.abs(j - init);
                 break;
             }
         }
