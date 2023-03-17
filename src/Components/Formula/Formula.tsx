@@ -12,7 +12,7 @@ export const Formula = ({ formula } : FormulaProps) => {
     const MakeFormula = (formula: string) => {
         formula = formula.replaceAll(' ', '');
 
-        let resultElement = [];
+        let resultElement : JSX.Element[] = [];
 
         for (let i = 0; i < formula.length; i++) {
             let distance = getDistanceToOperator(formula, i);
@@ -25,7 +25,7 @@ export const Formula = ({ formula } : FormulaProps) => {
                         <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
                         {makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)}  
                     </div>
-                )
+                );
                 i += distance + distance2;
             }
             else {
