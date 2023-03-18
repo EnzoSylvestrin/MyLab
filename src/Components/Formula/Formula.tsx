@@ -5,25 +5,35 @@ type FormulaProps = {
     formula: string;
 }
 
-export const Formula = ({ formula } : FormulaProps) => {
+type ParenthesesElements = {
+    Elements: JSX.Element[],
+}
 
-    const Operators = ["=", "/", "*", "+", "-"];
+export const Formula = ({ formula }: FormulaProps) => {
+
+    const Operators = ["=", "/", "*", "+", "-", "^"];
 
     const MakeFormula = (formula: string) => {
         formula = formula.replaceAll(' ', '');
 
-        let resultElement : JSX.Element[] = [];
+        let resultElement: JSX.Element[] = [];
+
+        let Elements: ParenthesesElements[] = [];
+
+        let resultParentheses = makeElementsWithparentheses(formula);
+        formula = resultParentheses.formula;
+        Elements = resultParentheses.Elements;
 
         for (let i = 0; i < formula.length; i++) {
             let distance = getDistanceToOperator(formula, i);
-            
+
             if (formula[i + distance] == '/') {
                 let distance2 = getDistanceToOperator(formula, i + distance + 1);
                 resultElement.push(
                     <div className="flex flex-col gap-2 justify-center items-center">
                         {makeElement(formula.substring(i, i + distance), false, i)}
                         <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
-                        {makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)}  
+                        {makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)}
                     </div>
                 );
                 i += distance + distance2;
@@ -31,6 +41,9 @@ export const Formula = ({ formula } : FormulaProps) => {
             else {
                 if (Operators.includes(formula[i])) {
                     resultElement.push(makeElement(formula[i], true, i))
+                }
+                else if (formula[i] == ' ') {
+                    resultElement.push(ConvertToAUniqueElement(Elements[0].Elements));
                 }
                 else {
                     resultElement.push(makeElement(formula.substring(i, i + distance), false, i))
@@ -42,7 +55,36 @@ export const Formula = ({ formula } : FormulaProps) => {
         return resultElement;
     }
 
-    const getDistanceToOperator = (formula: string, init: number) : number => {
+    const ConvertToAUniqueElement = (Elements: JSX.Element[]): JSX.Element => {
+        let result = <>
+            {
+                Elements.map(element => {
+                    return element;
+                })
+            }
+        </>
+
+        return result;
+    }
+
+    const makeElementsWithparentheses = (formula: string): { Elements: ParenthesesElements[], formula: string } => {
+        let elements: ParenthesesElements[] = [];
+
+        while (formula.indexOf('(') > -1) {
+            let start = formula.indexOf('(');
+            let end = formula.indexOf(')');
+            elements.push({ Elements: MakeFormula(formula.substring(start + 1, end)) });
+            formula = formula.slice(start, end);
+            formula = formula.substring(0, start) + ' ' + formula.substring(start);
+        }
+
+        return {
+            Elements: elements,
+            formula: formula
+        };
+    }
+
+    const getDistanceToOperator = (formula: string, init: number): number => {
         let distance = 0;
         for (let j = init; j < formula.length; j++) {
             if (Operators.includes(formula[j])) {
@@ -71,9 +113,9 @@ export const Formula = ({ formula } : FormulaProps) => {
     }
 
     const WriteElement = (text: string) => {
-        return text.length == 1 
-        ? <Heading size="sm">{text}</Heading> 
-        : <Heading size="sm">{text[0]}<sub>{text.substring(1)}</sub></Heading>
+        return text.length == 1
+            ? <Heading size="sm">{text}</Heading>
+            : <Heading size="sm">{text[0]}<sub>{text.substring(1)}</sub></Heading>
     }
 
     return (
