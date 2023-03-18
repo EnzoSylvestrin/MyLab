@@ -31,9 +31,29 @@ export const Formula = ({ formula }: FormulaProps) => {
                 let distance2 = getDistanceToOperator(formula, i + distance + 1);
                 resultElement.push(
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        {makeElement(formula.substring(i, i + distance), false, i)}
+                        {
+                            formula[i] == ' '
+                                ?
+                                (() => {
+                                    const jsxElement = ConvertToAUniqueElement(Elements[0].Elements);
+                                    Elements.shift();
+                                    return jsxElement;
+                                })()
+                                :
+                                makeElement(formula.substring(i, i + distance), false, i)
+                        }
                         <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
-                        {makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)}
+                        {
+                            formula[i + 2] == ' '
+                                ?
+                                (() => {
+                                    const jsxElement = ConvertToAUniqueElement(Elements[0].Elements);
+                                    Elements.shift();
+                                    return jsxElement;
+                                })()
+                                :
+                                makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)
+                        }
                     </div>
                 );
                 i += distance + distance2;
@@ -56,13 +76,13 @@ export const Formula = ({ formula }: FormulaProps) => {
     }
 
     const ConvertToAUniqueElement = (Elements: JSX.Element[]): JSX.Element => {
-        let result = <>
+        let result = <div className="flex items-center gap-3">
             {
                 Elements.map(element => {
                     return element;
                 })
             }
-        </>
+        </div>
 
         return result;
     }
@@ -73,9 +93,14 @@ export const Formula = ({ formula }: FormulaProps) => {
         while (formula.indexOf('(') > -1) {
             let start = formula.indexOf('(');
             let end = formula.indexOf(')');
+            if (end == -1) {
+                return {
+                    Elements: elements,
+                    formula: formula.substring(0, start) + '' + formula.substring(start + 1),
+                }
+            }
             elements.push({ Elements: MakeFormula(formula.substring(start + 1, end)) });
-            formula = formula.slice(start, end);
-            formula = formula.substring(0, start) + ' ' + formula.substring(start);
+            formula = formula.substring(0, start) + ' ' + formula.substring(end + 1);
         }
 
         return {
