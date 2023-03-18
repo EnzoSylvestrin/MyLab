@@ -4,13 +4,13 @@ import { IconType } from 'react-icons/lib';
 
 import { Icon } from '../Icon/Icon';
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> { }
 
 export interface InputRootProps {
     children: ReactNode,
 }
 
-function InputRoot({children} : InputRootProps) {
+function InputRoot({ children }: InputRootProps) {
     return (
         <div className='flex items-center gap-2 p-1 rounded w-16 h-10 bg-gray-200 text-xs placeholder:text-gray-400 focus-within:ring-2 ring-secondary dark:bg-gray-800'>
             {children}
@@ -25,7 +25,7 @@ export interface IconProps {
     colored?: boolean,
 }
 
-function InputIcon({icon, colored} : IconProps) {
+function InputIcon({ icon, colored }: IconProps) {
     return (
         <Icon icon={icon} colored={colored} />
     )
@@ -33,12 +33,12 @@ function InputIcon({icon, colored} : IconProps) {
 
 InputIcon.displayName = 'Input.Icon'
 
-export interface InputInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface InputInputProps extends InputHTMLAttributes<HTMLInputElement> { }
 
-function InputInput({...props} : InputInputProps) {
+function InputInput({ ...props }: InputInputProps) {
     return (
-        <input 
-            className='bg-transparent w-full caret-secondary text-darkColor text-md outline-none placeholder:text-gray-400 dark:text-lightColor'
+        <input
+            className='bg-transparent w-full caret-secondary text-darkColor text-sm outline-none placeholder:text-gray-400 dark:text-lightColor'
             {...props}
         />
     )

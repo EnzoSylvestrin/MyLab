@@ -71,6 +71,16 @@ a {
   color: #e7e7e7e7;  
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+  
+}
+input[type=number] { 
+ -moz-appearance: textfield;
+ appearance: textfield;
+
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -8,7 +8,7 @@ const Eletrica = () => {
         <div className="flex items-center w-full justify-center">
             <div className="w-full flex items-center justify-center flex-col">
                 <Heading size="lg" className={'bg-clip-text !text-transparent !bg-gradient-to-r from-secondary to-purple-600'}>Física elétrica</Heading>
-                <Formula formula={'R = V / I'}/>
+                <Formula formula={'R = V / I'} />
             </div>
         </div>
     );
