@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BiAtom, BiMenu, BiX } from 'react-icons/bi';
 import { TbMathFunction } from 'react-icons/tb';
 import { HiCode } from 'react-icons/hi';
-import { IoMdFlash } from 'react-icons/io';
+import { IoFlash } from 'react-icons/io5';
 
 import { ANIMATION_TYPE, DURATION_ANIMATION } from '@/Utils/Contants';
 
@@ -55,7 +55,7 @@ export const ToggleBar = () => {
                     <ExpandCard
                         title={{ text: 'Física', Icon: BiAtom }}
                         subTitles={[
-                            { text: 'Elétrica', link: 'eletrica', Icon: IoMdFlash },
+                            { text: 'Elétrica', link: 'eletrica', Icon: IoFlash },
                             { text: 'Óptica', link: 'optica' }
                         ]}
                     />

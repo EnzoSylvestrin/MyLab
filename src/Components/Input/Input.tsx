@@ -12,7 +12,7 @@ export interface InputRootProps {
 
 function InputRoot({ children }: InputRootProps) {
     return (
-        <div className='flex items-center gap-2 p-1 rounded w-16 h-10 bg-gray-200 text-xs placeholder:text-gray-400 focus-within:ring-2 ring-secondary dark:bg-gray-800'>
+        <div className='flex items-center gap-2 p-1 rounded w-16 h-10 bg-gray-300 text-xs placeholder:text-gray-400 focus-within:ring-2 ring-secondary dark:bg-gray-800'>
             {children}
         </div>
     );

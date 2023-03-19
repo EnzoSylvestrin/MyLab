@@ -122,7 +122,7 @@ export const Formula = ({ formula }: FormulaProps) => {
     }
 
     const makeElement = (text: string, operator: boolean, id: number) => {
-        if (operator) {
+        if (operator || !isNaN(parseInt(text))) {
             return <>{WriteElement(text)}</>
         }
         else {
