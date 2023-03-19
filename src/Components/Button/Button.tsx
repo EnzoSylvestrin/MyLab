@@ -20,7 +20,7 @@ export const Button = ({ size = 'md', type = "button", text, href, loading = fal
       type={type}
       className={clsx(
         "rounded-lg bg-secondary text-white ring-secondary ring-2 transition-all duration-500 ",
-        "px-2 py-1 cursor-pointer shadow-lg ",
+        "px-2 py-1 cursor-pointer shadow-lg selection:text-inherit",
         'hover:bg-transparent hover:text-secondary', {
         'text-sm': size === 'sm',
         'text-md': size === 'md',
@@ -29,27 +29,27 @@ export const Button = ({ size = 'md', type = "button", text, href, loading = fal
         '!text-transparent relative bg-transparent': loading
       })}
       {...(href ? { target: "_blank", rel: "noopener noreferrer", href: href } : {})}
-      onClick={!loading ? onClick : () => {return}}
+      onClick={!loading ? onClick : () => { return }}
       {...props}
     >
       {text}
       {
-        loading 
-        ?
-        <div className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'>
-          <motion.div 
-            className="rounded-full border-secondary border-2 border-t-transparent w-6 h-6"
-            animate={{
-              rotate: '360deg'
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity
-            }}
-          />
-        </div>
-        :
-        ''
+        loading
+          ?
+          <div className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'>
+            <motion.div
+              className="rounded-full border-secondary border-2 border-t-transparent w-6 h-6"
+              animate={{
+                rotate: '360deg'
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity
+              }}
+            />
+          </div>
+          :
+          ''
       }
     </Button>
   );

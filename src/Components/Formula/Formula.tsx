@@ -1,5 +1,5 @@
-import { Heading } from "../Heading/Heading"
-import { Input } from "../Input/Input"
+import { Heading } from "../Heading/Heading";
+import { Input } from "../Input/Input";
 
 type FormulaProps = {
     formula: string;

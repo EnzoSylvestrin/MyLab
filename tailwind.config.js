@@ -13,7 +13,7 @@ module.exports = {
         darkMain: '#333333',
         darkColor: 'rgb(23 23 23)',
         lightColor: 'rgb(249 250 251)',
-        lightHover: '#ebedf0',
+        lightHover: '#dfe0e0',
         darkHover: '#444950',
       },
       fontFamily: {
