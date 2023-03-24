@@ -1,8 +1,20 @@
 import { Heading } from "@/Components/Heading/Heading";
 import { Formula } from "@/Components/Formula/Formula";
 import { Text } from "@/Components/Text/Text";
+import { Table } from "@/Components/Table/Table";
 
 const Eletrica = () => {
+
+    const ItensEletrica = [
+        'Variáveis',
+        'Descrição',
+        'I',
+        'Tensão de corrente.',
+        'V',
+        'Diferença de potêncial elétrico (ddp)',
+        'R',
+        'Resistência de elétrica'
+    ];
 
     return (
         <div className="flex items-center w-full transition-colors duration-300 bg-grayMain dark:bg-darkMain">
@@ -18,7 +30,7 @@ const Eletrica = () => {
                         <Heading align="center">
                             Conceito:
                         </Heading>
-                        <Text align="center" className={'mt-2 break-words w-[90%]'}>
+                        <Text align="center" className={'mt-2 break-words w-full px-4'}>
                             O conceito de eletricidade é é abrangente, mas podemos compreendê-lo
                             como todos os efeitos que as cargas elétricas produzem sobre a matéria.
                             A eletricidade é comumente associada à corrente elétrica, uma movimentação de
@@ -28,9 +40,7 @@ const Eletrica = () => {
                         <Heading align="center" className={'mt-4'}>
                             Definições:
                         </Heading>
-                        <Text align="center" className={'mt-2'}>
-
-                        </Text>
+                        <Table gridTemplate="grid-cols-2" cols={2} className="my-4" Itens={ItensEletrica} />
                     </div>
                     <div className="w-full pl-2">
                         <Heading align="center">

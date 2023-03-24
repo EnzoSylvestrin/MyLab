@@ -30,29 +30,29 @@ export const Formula = ({ formula }: FormulaProps) => {
             if (formula[i + distance] == '/') {
                 let distance2 = getDistanceToOperator(formula, i + distance + 1);
                 resultElement.push(
-                    <div className="flex flex-col gap-2 justify-center items-center">
+                    <div className="flex flex-col gap-2 justify-center items-center" key={i}>
                         {
                             formula[i] == ' '
                                 ?
                                 (() => {
-                                    const jsxElement = ConvertToAUniqueElement(Elements[0].Elements);
+                                    const jsxElement = ConvertToAUniqueElement(Elements[0].Elements, i);
                                     Elements.shift();
                                     return jsxElement;
                                 })()
                                 :
-                                makeElement(formula.substring(i, i + distance), false, i)
+                                makeElement(formula.substring(i, i + distance), false, i + distance)
                         }
-                        <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" />
+                        <div className="h-[2px] w-full bg-slate-800 dark:bg-gray-50" key={i + distance + 1 + distance2} />
                         {
                             formula[i + 2] == ' '
                                 ?
                                 (() => {
-                                    const jsxElement = ConvertToAUniqueElement(Elements[0].Elements);
+                                    const jsxElement = ConvertToAUniqueElement(Elements[0].Elements, i + 2);
                                     Elements.shift();
                                     return jsxElement;
                                 })()
                                 :
-                                makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance)
+                                makeElement(formula.substring(i + distance + 1, i + distance + distance2 + 1), false, i + distance + distance2)
                         }
                     </div>
                 );
@@ -63,7 +63,7 @@ export const Formula = ({ formula }: FormulaProps) => {
                     resultElement.push(makeElement(formula[i], true, i))
                 }
                 else if (formula[i] == ' ') {
-                    resultElement.push(ConvertToAUniqueElement(Elements[0].Elements));
+                    resultElement.push(ConvertToAUniqueElement(Elements[0].Elements, i));
                 }
                 else {
                     resultElement.push(makeElement(formula.substring(i, i + distance), false, i))
@@ -71,12 +71,11 @@ export const Formula = ({ formula }: FormulaProps) => {
                 }
             }
         }
-
         return resultElement;
     }
 
-    const ConvertToAUniqueElement = (Elements: JSX.Element[]): JSX.Element => {
-        let result = <div className="flex items-center gap-3">
+    const ConvertToAUniqueElement = (Elements: JSX.Element[], id: number): JSX.Element => {
+        let result = <div className="flex items-center gap-3" key={id}>
             {
                 Elements.map(element => {
                     return element;
@@ -123,12 +122,12 @@ export const Formula = ({ formula }: FormulaProps) => {
 
     const makeElement = (text: string, operator: boolean, id: number) => {
         if (operator || !isNaN(parseInt(text))) {
-            return <>{WriteElement(text)}</>
+            return <div key={id}>{WriteElement(text, id)}</div>
         }
         else {
             return (
                 <div className="flex items-center gap-2 justify-center" key={id}>
-                    {WriteElement(text)}
+                    {WriteElement(text, id)}
                     <Input.Root>
                         <Input.Input type={'text'} />
                     </Input.Root>
@@ -137,10 +136,10 @@ export const Formula = ({ formula }: FormulaProps) => {
         }
     }
 
-    const WriteElement = (text: string) => {
+    const WriteElement = (text: string, id: number) => {
         return text.length == 1
-            ? <Heading size="sm">{text}</Heading>
-            : <Heading size="sm">{text[0]}<sub>{text.substring(1)}</sub></Heading>
+            ? <Heading size="sm" >{text}</Heading>
+            : <Heading size="sm" >{text[0]}<sub>{text.substring(1)}</sub></Heading>
     }
 
     return (
