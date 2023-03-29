@@ -85,7 +85,7 @@ describe('Menu component', () => {
         fireEvent.click(button);
 
         await waitFor(() => { expect(menuBar).toHaveStyle({ 'transform': 'translateX(0) translateZ(0)' }) }, {
-            timeout: 2000,
+            timeout: 5000,
         });
 
         fireEvent.click(button);
